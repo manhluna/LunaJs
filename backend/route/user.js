@@ -101,7 +101,7 @@ module.exports = (app) => {
         }
     })
 
-    app.get('/test-panel',(req,res) => {
+    app.get('/session',(req,res) => {
         const client = auth.get(req,'restApi')
         if (client.session == null) {
             res.redirect('/login')
@@ -110,13 +110,13 @@ module.exports = (app) => {
                 if ((!local.ip) || (!local.user)){
                     res.redirect('/login')
                 } else {
-                    res.render('test-panel',{sess: local.user.username})
+                    res.render('session',{sess: local.user.username})
                 }
             })
         }
     })
 
-    app.post('/test-panel',(req,res) => {
+    app.post('/session',(req,res) => {
         console.log(req.body)
         db.action(db.user, {'email': req.body.email}, null, (doc) => {
             if (doc == null) {
@@ -131,7 +131,7 @@ module.exports = (app) => {
                         req.session.user = {
                             id: sessionId,
                         }
-                        res.render('test-panel',{sess: sessionId})
+                        res.render('session',{sess: sessionId})
                     }
                 })
             }
@@ -144,11 +144,7 @@ module.exports = (app) => {
         })
     })
 
-    app.get('/tree', (req, res) => {
-        res.render('tree')
-    })
-
-    app.get('/panel', (req, res) => {
-        res.render('panel')
+    app.get('/ela',(req, res)=>{
+        res.render('ela')
     })
 }
