@@ -8,7 +8,7 @@ jQuery(function(){
         labels: {
             next: "Tiếp Tục",
             previous: "Trở Lại",
-            finish: 'Tiến Hành Kiểm Tra'
+            finish: 'Đặt Hàng'
         },
         onStepChanging: function (event, currentIndex, newIndex) { 
             if ( newIndex >= 1 ) {

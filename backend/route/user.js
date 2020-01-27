@@ -173,4 +173,8 @@ module.exports = (app) => {
     app.get('/orders',(req, res)=>{
         res.render('orders')
     })
+
+    app.get('/mycart',(req, res)=>{
+        res.render('mycart')
+    })
 }
