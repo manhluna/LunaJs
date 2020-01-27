@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 // Public Folder ('/')
 app.use(express.static('./frontend/public'))
-app.use(express.static('./frontend/labs/ElaAdmin'))
+app.use(express.static('./frontend/labs'))
 
 // Session
 app.use(session)
@@ -41,7 +41,7 @@ app.use(passport.session())
 
 // Template Ejs
 app.set('view engine', 'ejs')
-app.set('views', './frontend/template/test')
+app.set('views', './frontend/template/')
 
 restUser(app)
 restAdmin(app)

@@ -1,0 +1,32 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <%- include("modular/headTag") -%>
+    <link rel="stylesheet" href="Wizard/fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+    <link rel="stylesheet" href="Wizard/vendor/date-picker/css/datepicker.min.css">
+    <link rel="stylesheet" href="Wizard/css/style.css">
+</head>
+
+<body>
+    <%- include("modular/leftPanel") -%>
+
+    <div id="right-panel" class="right-panel">
+        <%- include("modular/header") -%>
+
+        <div class="content">
+            <div class="animated fadeIn">
+                <div class="row">
+                        <%- include("modular/cart") -%>
+                        <%- include("modular/cart") -%>
+                        <%- include("modular/cart") -%>
+                        <%- include("modular/cart") -%>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include("modular/scriptTag") -%>
+    <script src="Wizard/js/jquery.steps.js"></script>
+    <script src="Wizard/js/main.js"></script>
+</body>
+</html>

@@ -144,7 +144,33 @@ module.exports = (app) => {
         })
     })
 
-    app.get('/ela',(req, res)=>{
-        res.render('ela')
+    app.get('/socket',(req, res)=>{
+        res.render('socket')
+    })
+
+    app.get('/dashboard',(req, res)=>{
+        res.render('dashboard',{
+            $person: 720,
+            $system: 360,
+            $profit: 90,
+            agency: 10,
+            code: 123456,
+            rank: "ĐẠI LÝ BÁN LẺ",
+            ch: {amount: 100, revenue: 100},
+            ctv: {amount: 100, revenue: 100},
+            dlbl: {amount: 100, revenue: 100},
+            dlbb: {amount: 100, revenue: 100},
+            dlcm: {amount: 100, revenue: 100},
+            tdl: {amount: 100, revenue: 100},
+            npp: {amount: 100, revenue: 100},
+        })
+    })
+
+    app.get('/initial',(req, res)=>{
+        res.render('initial')
+    })
+
+    app.get('/orders',(req, res)=>{
+        res.render('orders')
     })
 }

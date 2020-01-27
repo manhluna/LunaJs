@@ -1,0 +1,212 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <%- include("modular/headTag") -%>
+</head>
+
+<body>
+    <%- include("modular/leftPanel") -%>
+    <!-- Right Panel -->
+    <div id="right-panel" class="right-panel">
+        <%- include("modular/header") -%>
+        <!-- Content -->
+        <div class="content">
+            <!-- Animated -->
+            <div class="animated fadeIn">
+                <!-- Widgets  -->
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="stat-widget-five">
+                                    <div class="stat-icon dib flat-color-1">
+                                        <i class="pe-7s-cart"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="text-left dib">
+                                            <div class="stat-text"><span class="count"><%= $person %></span> Kđ</div>
+                                            <div class="stat-heading">CÁ NHÂN</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="stat-widget-five">
+                                    <div class="stat-icon dib flat-color-2">
+                                        <i class="pe-7s-display2"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="text-left dib">
+                                            <div class="stat-text"><span class="count"><%= $system %></span> Kđ</div>
+                                            <div class="stat-heading">HỆ THỐNG</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="stat-widget-five">
+                                    <div class="stat-icon dib flat-color-3">
+                                        <i class="pe-7s-graph1"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="text-left dib">
+                                            <div class="stat-text"><span class="count"><%= $profit %></span> Kđ</div>
+                                            <div class="stat-heading">HOA HỒNG</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="stat-widget-five">
+                                    <div class="stat-icon dib flat-color-4">
+                                        <i class="pe-7s-users"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="text-left dib">
+                                            <div class="stat-text"><span class="count"><%= agency %></span></div>
+                                            <div class="stat-heading">TỔNG ĐẠI LÝ</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="stat-widget-five">
+                                    <div class="stat-icon dib flat-color-2">
+                                        <i class="pe-7s-display2"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="stat-heading">Cấp Bậc</div>
+                                        <div class="text-left dib">
+                                            <div class="stat-text"><%= rank %></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="stat-widget-five">
+                                    <div class="stat-icon dib flat-color-6">
+                                        <i class="pe-7s-copy-file"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="text-left dib">
+                                            <div class="stat-heading">Link Giới Thiệu</div>
+
+                                            <form>
+                                                <div class="input-group">
+                                                  <input type="text" class="form-control" id="copy-input" value="https://thienminhhungphat/signup?code=<%= code %>">
+                                                  <span class="input-group-btn">
+                                                    <button class="btn btn-info btn-copy" type="button" id="copy-button" data-clipboard-target="#copy-input"
+                                                        data-toggle="tooltip" data-placement="button"
+                                                        title="Copy to Clipboard">
+                                                      Copy
+                                                    </button>
+                                                  </span>
+                                                </div>
+                                              </form>
+
+                                              <!-- Target -->
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <table class="table table-hover">
+                                          <p align="center"><b>Đại Lý Của Bạn</b></p>
+                                    <thead>
+                                      <tr class="table-danger">
+                                        <th>Cấp bậc</th>
+                                        <th>Số lượng</th>
+                                        <th>Doanh thu (Kđ)</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr class="table-primary">
+                                        <th scope="row">Cửa hàng</th>
+                                        <td><%= ch.amount %></td>
+                                        <td><%= ch.revenue %></td>
+                                      </tr>
+                                      <tr class="table-secondary">
+                                        <th scope="row">Cộng tác viên</th>
+                                        <td><%= ctv.amount %></td>
+                                        <td><%= ctv.revenue %></td>
+                                      </tr>
+                                      <tr class="table-success">
+                                        <th scope="row">Đại lý bán lẻ</th>
+                                        <td><%= dlbl.amount %></td>
+                                        <td><%= dlbl.revenue %></td>
+                                      </tr>
+                                      <tr class="table-warning">
+                                        <th scope="row">Đại lý bán buôn</th>
+                                        <td><%= dlbb.amount %></td>
+                                        <td><%= dlbb.revenue %></td>             
+                                      </tr>
+                                      <tr class="table-info">
+                                        <th scope="row">Đại lý cấp 1</th>
+                                        <td><%= dlcm.amount %></td>
+                                        <td><%= dlcm.revenue %></td>
+                                      </tr>
+                                      <tr class="table-secondary">
+                                        <th scope="row">Tổng đại lý</th>
+                                        <td><%= tdl.amount %></td>
+                                        <td><%= tdl.revenue %></td>
+                                      </tr>          
+                                      <tr class="table-success">
+                                        <th scope="row">Nhà phân phối</th>
+                                        <td><%= npp.amount %></td>
+                                        <td><%= npp.revenue %></td>
+                                      </tr>  
+                                    </tbody>
+                                  </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- /Widgets -->
+            </div>
+            <!-- .animated -->
+        </div>
+    </div>
+</body>
+    <%- include("modular/scriptTag") -%>
+
+    <!-- Copy to clipboard -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script src="./js/copy.js"></script>
+</html>

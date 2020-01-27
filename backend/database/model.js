@@ -3,14 +3,58 @@ const Schema = mongoose.Schema
 mongoose.connect('mongodb://localhost/mydb',{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
 
 const schemaUser = new Schema({
-    id: {type: Number, default: 142857},
-    email: {type: String, default: 'user@example.com'},
-    phone: {type: String, default: '+840987654321'},
-    firstname: {type: String, default: 'Manh'},
-    lastname: {type: String, default: 'Luna'},
-    username: {type: String, default: 'anonymous'},
-    password: {type: String, default: 'anonymous'},
-    code: {type: Number, default: 142858}
+    //Info
+    id: {type: Number, default: null},
+    email: {type: String, default: null},
+    phone: {type: String, default: null},
+    firstname: {type: String, default: null},
+    lastname: {type: String, default: null},
+    username: {type: String, default: null},
+    password: {type: String, default: null},
+    code: {type: Number, default: 142858},
+    avatar: {type: String, default: null},
+    rank: {type: String, default: null},
+    //Sales
+    $person: {type: Number, default: null},
+    $system: {type: Number, default: null},
+    $profit: {type: Number, default: null},
+    agency: {type: Number, default: null},
+    active: {type: Boolean, default: false},
+    //Banks
+    owner: {type: String, default: null},
+    bank: {type: String, default: null},
+    account: {type: String, default: null},
+    branch: {type: String, default: null},
+    //Identifier
+    identifier: {type: String, default:null},
+    fullname: {type: String, default: null},
+    born: {type: String, default: null},
+    domicile: {type: String, default: null},
+    //History
+    order: [{
+        center: {type: String, default: null},
+        agency: {type: String, default: null},
+        amount: {type: Number, default: null},
+        status: {type: String, default: null},
+    }],
+    bought: [{
+        amount: {type: Number, default: null},
+        center: {type: String, default: null},
+        confirm: {type: String, default: null},
+        created: {type: String, default: null},
+    }],
+    sysbought: [{
+        agency: {type: String, default: null},
+        amount: {type: Number, default: null},
+        center: {type: String, default: null},
+        confirm: {type: String, default: null},
+        created: {type: String, default: null},
+    }],
+    bonus: [{
+        agency: {type: String, default: null},
+        amount: {type: Number, default: null},
+        created: {type: String, default: null},
+    }]
 },{
     versionKey: false
 })
