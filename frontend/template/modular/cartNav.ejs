@@ -2,18 +2,19 @@
    <div class="attr-nav"> 
     <ul> 
      <li class="dropdown">
-       <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-shopping-bag"></i><span class="badge">3</span></a>  -->
+
       <ul class="dropdown-menu cart-list">
-
-       <li> <a href="#" class="photo"><img src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_nav/images/thumb/thumb01.jpg" class="cart-thumb" alt="Sản phẩm 1"></a> 
-        <h6><a href="#">Sản phẩm 1 </a>
-        </h6> 
-        <p>2x - <span class="price">$99.99</span>
-        </p> 
-       </li> 
-
+        <% carts.forEach((item) => { %>
+          <li id="<%= item.time %>"> <a href="#" class="photo"><img src="<%= item.img %>" class="cart-thumb" alt="<%= item.name %>"></a> 
+            <h6><a href="#"><%= item.name %></a>
+            </h6> 
+            <p><span id="x_<%= item.time %>"><%= item.amount %></span>x - <span class="price"><%= item.pay/1000 %> Kđ</span>
+            </p> 
+           </li>
+        <% }) %>
+       
        <li class="total"> 
-         <span class="pull-right"><strong>&nbsp;&nbsp;&nbsp;Tổng tiền:&nbsp;&nbsp;</strong><span class="price">$99.99</span></span>
+         <span class="pull-right"><strong>&nbsp;&nbsp;&nbsp;Tổng tiền:&nbsp;&nbsp;</strong><span class="price"><span class="price" id="cart_total"><%= total%></span> Kđ</span></span>
          <a href="/mycart" class="btn">
           <i class="fa fa-cart-plus"></i>
         </a> 

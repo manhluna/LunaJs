@@ -13,47 +13,67 @@ const schemaUser = new Schema({
     password: {type: String, default: null},
     code: {type: Number, default: 142858},
     avatar: {type: String, default: null},
-    rank: {type: String, default: null},
     //Sales
-    $person: {type: Number, default: null},
-    $system: {type: Number, default: null},
-    $profit: {type: Number, default: null},
-    agency: {type: Number, default: null},
-    active: {type: Boolean, default: false},
-    //Banks
-    owner: {type: String, default: null},
-    bank: {type: String, default: null},
-    account: {type: String, default: null},
-    branch: {type: String, default: null},
-    //Identifier
-    identifier: {type: String, default:null},
-    fullname: {type: String, default: null},
-    born: {type: String, default: null},
-    domicile: {type: String, default: null},
-    //History
-    order: [{
-        center: {type: String, default: null},
-        agency: {type: String, default: null},
-        amount: {type: Number, default: null},
-        status: {type: String, default: null},
-    }],
-    bought: [{
-        amount: {type: Number, default: null},
-        center: {type: String, default: null},
-        confirm: {type: String, default: null},
-        created: {type: String, default: null},
-    }],
-    sysbought: [{
-        agency: {type: String, default: null},
-        amount: {type: Number, default: null},
-        center: {type: String, default: null},
-        confirm: {type: String, default: null},
-        created: {type: String, default: null},
-    }],
-    bonus: [{
-        agency: {type: String, default: null},
-        amount: {type: Number, default: null},
-        created: {type: String, default: null},
+    person: {type: Number, default: 0},
+    system: {type: Number, default: 0},
+    profit: {type: Number, default: 0},
+    agency: {type: Number, default: 0},
+    rank: {type: Number, default: 0},
+
+    ch: {amount: {type: Number, default: 0}, revenue: {type: Number, default: 0}},
+    ctv: {amount: {type: Number, default: 0}, revenue: {type: Number, default: 0}},
+    dlbl: {amount: {type: Number, default: 0}, revenue: {type: Number, default: 0}},
+    dlbb: {amount: {type: Number, default: 0}, revenue: {type: Number, default: 0}},
+    dlcm: {amount: {type: Number, default: 0}, revenue: {type: Number, default: 0}},
+    tdl: {amount: {type: Number, default: 0}, revenue: {type: Number, default: 0}},
+    npp: {amount: {type: Number, default: 0}, revenue: {type: Number, default: 0}},
+
+    //Wizard
+    wizard: {
+        //Identifier
+        identifier: {type: String, default:null},
+        fullname: {type: String, default: null},
+        born: {type: String, default: null},
+        domicile: {type: String, default: null},
+        owner: {type: String, default: null},
+        bank: {type: String, default: null},
+        account: {type: String, default: null},
+        branch: {type: String, default: null},
+        checkStatus: {type: Boolean, default: false},
+    },
+    orders: {
+        carts: [{
+            time: {type: String, default: null},
+            img: {type: String, default: null},
+            code: {type: String, default: null},
+            name: {type: String, default: null},
+            amount: {type: Number, default: 0},
+            pay: {type: Number, default: 0},
+        }],
+        total: {type: Number, default: 0},
+        number: {type: Number, default: 0},
+    },
+    history: [{
+        id: {type: String, default: null},
+        carts: [{
+            time: {type: String, default: null},
+            img: {type: String, default: null},
+            code: {type: String, default: null},
+            name: {type: String, default: null},
+            amount: {type: Number, default: 0},
+            pay: {type: Number, default: 0},
+        }],
+        attach: {
+            payment: {type: String, default: null},
+            commentPay: {type: String, default: null},
+            ttphanphoi: {type: String, default: null},
+            nguoinhan: {type: String, default: null},
+            sodienthoai: {type: String, default: null},
+            diachinhan: {type: String, default: null},
+        },
+        total: {type: Number, default: 0},
+        number: {type: Number, default: 0},
+        status: {type: String, default: null}
     }]
 },{
     versionKey: false

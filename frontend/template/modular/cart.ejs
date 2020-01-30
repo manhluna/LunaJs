@@ -8,63 +8,109 @@
       <th style="width:10%"> </th> 
      </tr> 
     </thead> 
-    <tbody><tr> 
-     <td data-th="Product"> 
-      <div class="row"> 
-       <div class="col-sm-2 hidden-xs"><img src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/shopping_cart/images/090.jpg" alt="Sản phẩm 1" class="img-responsive" width="100">
-       </div> 
-       <div class="col-sm-10"> 
-        <h4 class="nomargin">Sản phẩm 1</h4> 
-        <p>Mô tả của sản phẩm 1</p> 
-       </div> 
-      </div> 
-     </td> 
-     <td data-th="Price">200.000 đ</td> 
-     <td data-th="Quantity"><input class="form-control text-center" value="1" type="number">
-     </td> 
-     <td data-th="Subtotal" class="text-center">200.000 đ</td> 
-     <td class="actions" data-th="">
-      <button class="btn btn-info btn-sm"><i class="fa fa-edit"></i>
-      </button> 
-      <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i>
-      </button>
-     </td> 
-    </tr> 
-    <tr> 
-     <td data-th="Product"> 
-      <div class="row"> 
-       <div class="col-sm-2 hidden-xs"><img src="http://hocwebgiare.com/thiet_ke_web_chuan_demo/shopping_cart/images/174.jpg" alt="Sản phẩm 1" class="img-responsive" width="100">
-       </div> 
-       <div class="col-sm-10"> 
-        <h4 class="nomargin">Sản phẩm 2</h4> 
-        <p>Mô tả của sản phẩm 2</p> 
-       </div> 
-      </div> 
-     </td> 
-     <td data-th="Price">300.000 đ</td> 
-     <td data-th="Quantity"><input class="form-control text-center" value="1" type="number">
-     </td> 
-     <td data-th="Subtotal" class="text-center">300.000 đ</td> 
-     <td class="actions" data-th="">
-      <button class="btn btn-info btn-sm"><i class="fa fa-edit"></i>
-      </button> 
-      <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i>
-      </button>
-     </td> 
-    </tr> 
+    <tbody>
+    <% carts.forEach((item) => { %>
+        <tr id="line_<%= item.time %>"> 
+            <td data-th="Product"> 
+             <div class="row"> 
+              <div class="col-sm-2 hidden-xs"><img src="<%= item.img %>" alt="Sản phẩm 1" class="img-responsive" width="100">
+              </div> 
+              <div class="col-sm-10"> 
+               <h4 class="nomargin"><%= item.name %></h4> 
+               <p><%= item.code %></p> 
+              </div> 
+             </div> 
+            </td> 
+            <td data-th="Price"><%= (item.pay / item.amount)/1000 %> Kđ</td> 
+            <td data-th="Quantity"><input class="form-control text-center" id="change_<%= item.time %>" value="<%= item.amount %>" type="number">
+            </td> 
+            <td data-th="Subtotal" class="text-center"><span id="pay_<%= item.time %>"><%= item.pay/1000 %></span> Kđ</td> 
+            <td class="actions" data-th="">
+             <button class="btn btn-danger btn-sm" id="button_<%= item.time %>"><i class="fa fa-trash-o"></i>
+             </button>
+            </td> 
+           </tr> 
+    <% }) %>
+
     </tbody><tfoot> 
      <tr class="visible-xs"> 
-      <td class="text-center"><strong>Tổng 200.000 đ</strong>
+      <td class="text-center"><strong>Tổng <strong id="cart_total_1"><%= total%></strong> Kđ</strong>
       </td> 
      </tr> 
      <tr> 
       <td><a href="/orders" class="btn btn-warning"><i class="fa fa-angle-left"></i> Tiếp tục mua hàng</a>
       </td> 
       <td colspan="2" class="hidden-xs"> </td> 
-      <td class="hidden-xs text-center"><strong>Tổng tiền 500.000 đ</strong>
+      <td class="hidden-xs text-center"><strong>Tổng tiền <strong id="cart_total_2"><%= total%></strong> Kđ</strong>
       </td> 
-      <td><a href="http://hocwebgiare.com/" class="btn btn-success btn-block">Thanh toán <i class="fa fa-angle-right"></i></a>
-      </td> 
+      <td><a class="btn btn-success btn-block" data-toggle="modal" data-target="#exampleModal">Thanh toán <i class="fa fa-angle-right"></i></a>
+      </td>
      </tr> 
     </tfoot> 
    </table>
+
+   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Thông Tin Người Nhận</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+            <div class="form-row">
+                <div class="form-holder w-100">
+                    <div class="input-group">
+                        <select class="custom-select" id="payment">
+                          <option selected>Phương Thức Thanh Toán</option>
+                          <option value="banking">Trả Trước Bằng Chuyển Khoản (Freeship Nội Tỉnh)</option>
+                          <option value="receive">Thanh Toán Khi Nhận Hàng (Phí Vận Chuyển: 30,000 đ)</option>
+                          <option value="place">Nhận Hàng Tại Trung Tâm Phân Phối</option>
+                        </select>
+                      </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-holder w-100">
+                    <div class="input-group">
+                        <select class="custom-select" id="ttphanphoi">
+                          <option selected>Trung Tâm Phân Phối</option>
+                          <option value="hn">Hà Nội</option>
+                          <option value="nd">Nam Định</option>
+                          <option value="tb">Thái Bình</option>
+                        </select>
+                      </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-holder w-100">
+                    <i class="zmdi zmdi-account"></i>
+                    <input type="text" class="form-control" id="nguoinhan" placeholder="Tên Người Nhận">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-holder w-100">
+                    <i class="zmdi zmdi-phone-sip"></i>
+                    <input type="text" class="form-control" id="sodienthoai" placeholder="Số Điện Thoại Nhận">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-holder w-100">
+                    <i class="zmdi zmdi-pin-drop"></i>
+                    <input type="text" class="form-control" id="diachinhan" placeholder="Địa Chỉ Giao Hàng">
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal" id="buttonModal">Đặt Hàng</button>
+        </div>
+      </div>
+    </div>
+  </div>

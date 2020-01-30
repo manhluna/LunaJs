@@ -14,10 +14,8 @@
         <div class="content">
             <div class="animated fadeIn">
                 <div class="row">
-                        <%- include("modular/buy") -%>
-                        <%- include("modular/buy") -%>
-                        <%- include("modular/buy") -%>
-                        <%- include("modular/buy") -%>
+                        <%- include("modular/buy/1") -%>
+                        <%- include("modular/buy/2") -%>
                 </div>
             </div>
         </div>
@@ -26,5 +24,8 @@
     <%- include("modular/scriptTag") -%>
     <script src="Wizard/js/jquery.steps.js"></script>
     <script src="Wizard/js/main.js"></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/socket.js"></script>
 </body>
 </html>

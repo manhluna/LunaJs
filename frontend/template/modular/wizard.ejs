@@ -1,171 +1,169 @@
-<div class="luna">
-    <div class="wrapper">
-        <form action="" id="wizard">
-            <!-- SECTION 1 -->
-            <h4 class="lnH4"></h4>
-            <section>
-                <h3 class="lnH3">Chứng Minh Thư</h3>
-                <div class="form-row">
-                    <div class="form-holder w-100">
-                        <i class="zmdi zmdi-accounts-list"></i>
-                        <input type="text" class="form-control" id="cmnd" placeholder="Số CMND/CCCD">
+<div id="status">
+    <div class="luna">
+        <div class="wrapper">
+            <form action="" id="wizard">
+                <!-- SECTION 1 -->
+                <h4 class="lnH4"></h4>
+                <section>
+                    <h3 class="lnH3">Chứng Minh Thư</h3>
+                    <div class="form-row">
+                        <div class="form-holder w-100">
+                            <i class="zmdi zmdi-accounts-list"></i>
+                            <input type="text" class="form-control" id="cmnd" placeholder="Số CMND/CCCD">
+                        </div>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-holder w-100">
-                        <i class="zmdi zmdi-account"></i>
-                        <input type="text" class="form-control" id="fullname" placeholder="Họ & Tên">
+                    <div class="form-row">
+                        <div class="form-holder w-100">
+                            <i class="zmdi zmdi-account"></i>
+                            <input type="text" class="form-control" id="fullname" placeholder="Họ & Tên">
+                        </div>
                     </div>
-                </div>
+        
+                    <div class="form-row">
+                        <div class="form-holder w-100">
+                            <i class="zmdi zmdi-calendar-note"></i>
+                            <input type="date" class="form-control" id="born" value="1990-01-01" min="1930-01-01" max="2002-12-31">
+                        </div>
+                    </div>
+        
+                    <div class="form-row">
+                        <div class="form-holder w-100">
+                            <i class="zmdi zmdi-pin-drop"></i>
+                            <input type="text" class="form-control" id="domicile" placeholder="Nguyên Quán">
+                        </div>
+                    </div>
+                </section>
+        
+                <!-- SECTION 2 -->
+                <h4 class="lnH4"></h4>
+                <section>
+                    <h3 class="lnH3">Tài Khoản Ngân Hàng</h3>
+                    <div class="form-row">
+                        <div class="form-holder w-100">
+                            <input type="text" class="form-control" id="bankname" placeholder="Tên Ngân Hàng (Vietcombank)">
+                            <i class="zmdi zmdi-globe"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-holder w-100">
+                            <input type="text" class="form-control" id="bankpin" placeholder="Chi nhánh (Hà Nội)">
+                            <i class="zmdi zmdi-pin"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-holder w-100">
+                            <input type="text" class="form-control" id="bankowner" placeholder="Tên Chủ Tài Khoản">
+                            <i class="zmdi zmdi-assignment-account"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-holder w-100">
+                            <input type="text" class="form-control" id="bankaccount" placeholder="Số Tài Khoản">
+                            <i class="zmdi zmdi-card"></i>
+                        </div>
+                    </div>
+                </section>
+        
+                <!-- SECTION 3 -->
+                <h4 class="lnH4"></h4>
+                <section>
+                    <h3 style="margin-bottom: 16px;" class="lnH3">Giỏ Hàng</h3>
+                    <table cellspacing="0" class="table-cart shop_table shop_table_responsive cart woocommerce-cart-form__contents table" id="shop_table">
+                        <thead>
+                            <th >&nbsp;</th>
+                            <th style="text-align: left;">Sản Phẩm</th>
+                            <th >Số Lượng</th>
+                            <th >Thành Tiền</th>
+                            <th >&nbsp;</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="product-thumb">
+                                    <a href="#" class="item-thumb">
+                                        <img src="Wizard/images/item-1.jpg" alt="">
+                                    </a>
+                                </td>
+                                <td class="product-detail" data-title="Product Detail">
+                                    <div>
+                                        <span id="name_product" data-name="Cherry"></span>
+                                        <a href="#" id="code_product">Cherry</a>
+                                        <span id="unit_price">900000</span>
+                                        <span>VND</span>
+                                    </div>
+                                </td>
+                                <td class="product-quantity" data-title="Quantity">
+                                    <div class="quantity">
+                                        <span class="minus">-</span>
+                                        <input type="number" class="input-text qty text" id="first_amount" step="1" min="0" max="" name="cart" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" />
+                                        <span class="plus">+</span>
+                                    </div>
+                                </td>
     
-                <div class="form-row">
-                    <div class="form-holder w-100">
-                        <i class="zmdi zmdi-calendar-note"></i>
-                        <input type="date" class="form-control" id="born" value="1990-01-01" min="1930-01-01" max="2002-12-31">
+                                <td class="total-price" data-title="Total Price">
+                                    <span class="woocommerce-Price-amount amount">
+                                        900,000
+                                        <span class="woocommerce-Price-currencySymbol">VND</span>
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="form-row">
+                        <div class="form-holder w-100">
+                            <div class="input-group">
+                                <select class="custom-select" id="payment">
+                                  <option selected>Phương Thức Thanh Toán</option>
+                                  <option value="banking">Trả Trước Bằng Chuyển Khoản (Freeship Nội Tỉnh)</option>
+                                  <option value="receive">Thanh Toán Khi Nhận Hàng (Phí Vận Chuyển: 30,000 đ)</option>
+                                  <option value="place">Nhận Hàng Tại Trung Tâm Phân Phối</option>
+                                </select>
+                              </div>
+                        </div>
                     </div>
-                </div>
+                </section>
+        
+                <!-- SECTION 4 -->
+                <h4 class="lnH4"></h4>
+                <section>
+                    <h3 class="lnH3">Thông Tin Người Nhận</h3>
+                    <div class="form-row">
+                        <div class="form-holder w-100">
+                            <!-- <i class="zmdi zmdi-accounts-list"></i> -->
+                            <!-- <input type="text" class="form-control" id="ttphanphoi" placeholder="Trung Tâm Phân Phối"> -->
     
-                <div class="form-row">
-                    <div class="form-holder w-100">
-                        <i class="zmdi zmdi-pin-drop"></i>
-                        <input type="text" class="form-control" id="domicile" placeholder="Nguyên Quán">
+                            <div class="input-group">
+                                <select class="custom-select" id="ttphanphoi">
+                                  <option selected>Trung Tâm Phân Phối</option>
+                                  <option value="hn">Hà Nội</option>
+                                  <option value="nd">Nam Định</option>
+                                  <option value="tb">Thái Bình</option>
+                                </select>
+                              </div>
+                        </div>
                     </div>
-                </div>
-            </section>
+                    <div class="form-row">
+                        <div class="form-holder w-100">
+                            <i class="zmdi zmdi-account"></i>
+                            <input type="text" class="form-control" id="nguoinhan" placeholder="Tên Người Nhận">
+                        </div>
+                    </div>
+        
+                    <div class="form-row">
+                        <div class="form-holder w-100">
+                            <i class="zmdi zmdi-phone-sip"></i>
+                            <input type="text" class="form-control" id="sodienthoai" placeholder="Số Điện Thoại Nhận">
+                        </div>
+                    </div>
+        
+                    <div class="form-row">
+                        <div class="form-holder w-100">
+                            <i class="zmdi zmdi-pin-drop"></i>
+                            <input type="text" class="form-control" id="diachinhan" placeholder="Địa Chỉ Giao Hàng">
+                        </div>
+                    </div>
     
-            <!-- SECTION 2 -->
-            <h4 class="lnH4"></h4>
-            <section>
-                <h3 class="lnH3">Tài Khoản Ngân Hàng</h3>
-                <div class="form-row">
-                    <div class="form-holder w-100">
-                        <input type="text" class="form-control" id="bankname" placeholder="Tên Ngân Hàng (Vietcombank)">
-                        <i class="zmdi zmdi-globe"></i>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-holder w-100">
-                        <input type="text" class="form-control" id="bankpin" placeholder="Chi nhánh (Hà Nội)">
-                        <i class="zmdi zmdi-pin"></i>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-holder w-100">
-                        <input type="text" class="form-control" id="bankowner" placeholder="Tên Chủ Tài Khoản">
-                        <i class="zmdi zmdi-assignment-account"></i>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-holder w-100">
-                        <input type="text" class="form-control" id="bankaccount" placeholder="Số Tài Khoản">
-                        <i class="zmdi zmdi-card"></i>
-                    </div>
-                </div>
-            </section>
-    
-            <!-- SECTION 3 -->
-            <h4 class="lnH4"></h4>
-            <section>
-                <h3 style="margin-bottom: 16px;" class="lnH3">Giỏ Hàng</h3>
-                <table cellspacing="0" class="table-cart shop_table shop_table_responsive cart woocommerce-cart-form__contents table" id="shop_table">
-                    <thead>
-                        <th >&nbsp;</th>
-                        <th style="text-align: left;">Sản Phẩm</th>
-                        <th >Số Lượng</th>
-                        <th >Thành Tiền</th>
-                        <th >&nbsp;</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="product-thumb">
-                                <a href="#" class="item-thumb">
-                                    <img src="Wizard/images/item-1.jpg" alt="">
-                                </a>
-                            </td>
-                            <td class="product-detail" data-title="Product Detail">
-                                <div>
-                                    <a href="#">Cherry</a>
-                                    <span>900,000</span>
-                                    <span>VND</span>
-                                </div>
-                            </td>
-                            <td class="product-quantity" data-title="Quantity">
-                                <div class="quantity">
-                                    <span class="minus">-</span>
-                                    <input type="number" class="input-text qty text" id="" step="1" min="0" max="" name="cart" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" />
-                                    <span class="plus">+</span>
-                                </div>
-                            </td>
-
-                            <td class="total-price" data-title="Total Price">
-                                <span class="woocommerce-Price-amount amount">
-                                    900,000
-                                    <span class="woocommerce-Price-currencySymbol">VND</span>
-                                </span>
-                            </td>
-                            <td class="product-remove">
-                                <a href="#">
-                                    <i class="zmdi zmdi-close-circle-o"></i>
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="form-row">
-                    <div class="form-holder w-100">
-                        <div class="input-group">
-                            <select class="custom-select" id="payment">
-                              <option selected>Phương Thức Thanh Toán</option>
-                              <option value="banking">Trả Trước Bằng Chuyển Khoản (Freeship Nội Tỉnh)</option>
-                              <option value="receive">Thanh Toán Khi Nhận Hàng (Phí Vận Chuyển: 30,000 đ)</option>
-                              <option value="place">Nhận Hàng Tại Trung Tâm Phân Phối</option>
-                            </select>
-                          </div>
-                    </div>
-                </div>
-            </section>
-    
-            <!-- SECTION 4 -->
-            <h4 class="lnH4"></h4>
-            <section>
-                <h3 class="lnH3">Thông Tin Người Nhận</h3>
-                <div class="form-row">
-                    <div class="form-holder w-100">
-                        <!-- <i class="zmdi zmdi-accounts-list"></i> -->
-                        <!-- <input type="text" class="form-control" id="ttphanphoi" placeholder="Trung Tâm Phân Phối"> -->
-
-                        <div class="input-group">
-                            <select class="custom-select" id="ttphanphoi">
-                              <option selected>Trung Tâm Phân Phối</option>
-                              <option value="hn">Hà Nội</option>
-                              <option value="nd">Nam Định</option>
-                              <option value="tb">Thái Bình</option>
-                            </select>
-                          </div>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-holder w-100">
-                        <i class="zmdi zmdi-account"></i>
-                        <input type="text" class="form-control" id="nguoinhan" placeholder="Tên Người Nhận">
-                    </div>
-                </div>
-    
-                <div class="form-row">
-                    <div class="form-holder w-100">
-                        <i class="zmdi zmdi-phone-sip"></i>
-                        <input type="text" class="form-control" id="sodienthoai" placeholder="Số Điện Thoại Nhận">
-                    </div>
-                </div>
-    
-                <div class="form-row">
-                    <div class="form-holder w-100">
-                        <i class="zmdi zmdi-pin-drop"></i>
-                        <input type="text" class="form-control" id="diachinhan" placeholder="Địa Chỉ Giao Hàng">
-                    </div>
-                </div>
-
-            </section>
-        </form>
+                </section>
+            </form>
+        </div>
     </div>
 </div>

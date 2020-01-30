@@ -2,6 +2,10 @@
 <html class="no-js" lang="">
 <head>
     <%- include("modular/headTag") -%>
+    <link rel="stylesheet" href="Wizard/fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+    <link rel="stylesheet" href="Wizard/vendor/date-picker/css/datepicker.min.css">
+    <link rel="stylesheet" href="Wizard/css/style.css">
+    
     <link rel="stylesheet" href="css/cart.css">
 </head>
 
@@ -13,7 +17,7 @@
 
         <div class="content">
             <div class="animated fadeIn">
-                <div class="row">
+                <div class="row" id="status">
                     <%- include("modular/cart") -%>
                 </div>
             </div>
@@ -21,5 +25,11 @@
     </div>
 
     <%- include("modular/scriptTag") -%>
+
+    <script src="Wizard/js/jquery.steps.js"></script>
+    <script src="Wizard/js/main.js"></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/socket.js"></script>
 </body>
 </html>
