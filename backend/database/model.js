@@ -11,14 +11,16 @@ const schemaUser = new Schema({
     lastname: {type: String, default: null},
     username: {type: String, default: null},
     password: {type: String, default: null},
-    code: {type: Number, default: 142858},
+    // code: {type: Number, default: null},
+    code: [{type: Number, default: null}],
     avatar: {type: String, default: null},
     //Sales
     person: {type: Number, default: 0},
+    rank: {type: Number, default: 0},
+
     system: {type: Number, default: 0},
     profit: {type: Number, default: 0},
     agency: {type: Number, default: 0},
-    rank: {type: Number, default: 0},
 
     ch: {amount: {type: Number, default: 0}, revenue: {type: Number, default: 0}},
     ctv: {amount: {type: Number, default: 0}, revenue: {type: Number, default: 0}},
@@ -73,7 +75,8 @@ const schemaUser = new Schema({
         },
         total: {type: Number, default: 0},
         number: {type: Number, default: 0},
-        status: {type: String, default: null}
+        status: {type: String, default: null},
+        created: {type: String, default: null},
     }]
 },{
     versionKey: false
@@ -82,8 +85,12 @@ const schemaUser = new Schema({
 const User = mongoose.model('User', schemaUser,'users')
 
 const schemaAdmin = new Schema({
-    id: {type: String, default: 'admin'},
-    users: {type: Number, default: 0}
+    id: {type: Number, default: 142858},
+    role: {type: String, default: 'admin'},
+    email: {type: String, default: null},
+    password: {type: String, default: null},
+    users: {type: Number, default: 0},
+    sales: {type: Number, default: 0},
 },{
     versionKey: false
 })

@@ -12,7 +12,7 @@ const session = require('express-session')({
   resave: true, 
   saveUninitialized: true, 
   secret: process.env.cookie_secret, 
-  cookie: { maxAge: 600000 }
+  cookie: { maxAge: 3600000 }
 })
 const flash = require('connect-flash')
 const passport = require('passport')

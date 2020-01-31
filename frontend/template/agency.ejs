@@ -1,0 +1,35 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <%- include("modular/headTag") -%>
+    <link rel="stylesheet" href="css/DataInspector.css" />
+    <script src="js/go.js"></script>
+    <script src="css/DataInspector.js"></script>
+    <script src="js/tree.js"></script>
+</head>
+
+<body onload="init()">
+    <%- include("modular/leftPanel") -%>
+
+    <div id="right-panel" class="right-panel">
+        <%- include("modular/header") -%>
+
+        <div class="content">
+            <div class="animated fadeIn">
+                <div class="row" id="myDiagramDiv" style="background-color: #34343C; height: 450px;"></div>
+                <br>
+                <p align="center">
+                    <button class="btn btn-primary" id="zoomToFit">Zoom</button> 
+                    <button class="btn btn-primary" id="centerRoot">Center</button>
+                </p>      
+                <div id="myInspector"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include("modular/scriptTag") -%>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/socket.js"></script>
+</body>
+</html>

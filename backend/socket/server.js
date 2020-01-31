@@ -1,6 +1,15 @@
 require('dotenv').config()
 const db = require('../database/model')
 const auth = require('../authentic/lite')
+
+function time(date) {
+    let year = date.getFullYear();
+    let month = (1 + date.getMonth()).toString().padStart(2, '0');
+    let day = date.getDate().toString().padStart(2, '0');
+  
+    return day + '/' + month + '/' + year;
+}
+
 module.exports = (io) => {
     io.set('origins', `${process.env.host}:${process.env.http_port || process.env.PORT}`)
     // io.on('connection', connection)
@@ -28,7 +37,8 @@ module.exports = (io) => {
                     attach: data.attach,
                     number: 1,
                     total: data.carts[0].pay,
-                    status: "Đang chờ xử lý"
+                    status: "Đang chờ xử lý",
+                    created: time(new Date()),
                 }}},(doc)=>{})  
             })
             io.sockets.emit('wizardComplete', {code: data.attach.commentPay, amount: data.carts[0].pay})
@@ -81,7 +91,8 @@ module.exports = (io) => {
                     attach: data.attach,
                     total: local.user.orders.total,
                     number: local.user.orders.number,
-                    status: 'Đang chờ xử lý'
+                    status: 'Đang chờ xử lý',
+                    created: time(new Date()),
                 }}, $set: {'orders.carts': [], 'orders.total': 0, 'orders.number': 0}},(doc)=>{})  
             })
             setTimeout(()=>{

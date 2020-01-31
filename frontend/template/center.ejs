@@ -1,0 +1,26 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <%- include("modular/headTag") -%>
+</head>
+
+<body onload="init()">
+    <%- include("modular/leftPanel") -%>
+
+    <div id="right-panel" class="right-panel">
+        <%- include("modular/header") -%>
+
+        <div class="content">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <%- include("modular/area") -%>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include("modular/scriptTag") -%>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/socket.js"></script>
+</body>
+</html>

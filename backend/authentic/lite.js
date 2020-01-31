@@ -40,6 +40,15 @@ const deSession = (session, nowIp,cb) => {
     })
 }
 
+const admin = (session, nowIp,cb) => {
+    const idHex = session.slice(1, Number(session[0])*2+1)
+    const id = decrypt(idHex)
+    const ipHex = session.slice(Number(session[0])*2+1, session.length)
+    db.action(db.admin, {id: id}, null, (res) => {
+        cb({admin: (res == null) ? false : res, ip: (decrypt(ipHex) == nowIp) ? true : false})  
+    })
+}
+
 const get = (protocol,type) => {
     if (type == 'socket') {
         return {
@@ -60,5 +69,6 @@ module.exports = {
     de: decrypt,
     get: get,
     set: enSession,
-    check: deSession
+    check: deSession,
+    admin: admin
 }

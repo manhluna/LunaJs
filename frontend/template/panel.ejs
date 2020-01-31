@@ -1,0 +1,65 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <%- include("modular/headTag") -%>
+</head>
+
+<body>
+    <%- include("modular/leftAdmin") -%>
+    <!-- Right Panel -->
+    <div id="right-panel" class="right-panel">
+        <%- include("modular/headerAdmin") -%>
+        <!-- Content -->
+        <div class="content">
+            <!-- Animated -->
+            <div class="animated fadeIn">
+                <!-- Widgets  -->
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="stat-widget-five">
+                                    <div class="stat-icon dib flat-color-2">
+                                        <i class="pe-7s-display2"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="text-left dib">
+                                            <div class="stat-text"><span class="count"><%= sales %></span> Kđ</div>
+                                            <div class="stat-heading">Doanh Số</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="stat-widget-five">
+                                    <div class="stat-icon dib flat-color-4">
+                                        <i class="pe-7s-users"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="text-left dib">
+                                            <div class="stat-text"><span class="count"><%= users %></span></div>
+                                            <div class="stat-heading">ĐẠI LÝ</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Widgets -->
+            </div>
+            <!-- .animated -->
+        </div>
+    </div>
+</body>
+    <%- include("modular/scriptTag") -%>
+
+    <!-- Copy to clipboard -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script src="./js/copy.js"></script>
+</html>

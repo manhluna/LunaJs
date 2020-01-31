@@ -282,4 +282,62 @@ module.exports = (app) => {
             })
         }
     })
+
+    app.get('/history',(req, res)=>{
+        const client = auth.get(req,'restApi')
+        if (client.session == null) {
+            res.redirect('/login')
+        } else {
+            auth.check(client.session.id, client.ip, local => {
+                if ((!local.ip) || (!local.user)){
+                    res.redirect('/login')
+                } else {
+                        res.render('history',{
+                            number: local.user.orders.number,
+                            total: local.user.orders.total/1000,
+                            carts: local.user.orders.carts,
+                            history: local.user.history,
+                        })
+                }
+            })
+        }
+    })
+
+    app.get('/agency',(req, res)=>{
+        const client = auth.get(req,'restApi')
+        if (client.session == null) {
+            res.redirect('/login')
+        } else {
+            auth.check(client.session.id, client.ip, local => {
+                if ((!local.ip) || (!local.user)){
+                    res.redirect('/login')
+                } else {
+                        res.render('agency',{
+                            number: local.user.orders.number,
+                            total: local.user.orders.total/1000,
+                            carts: local.user.orders.carts,
+                        })
+                }
+            })
+        }
+    })
+
+    app.get('/center',(req, res)=>{
+        const client = auth.get(req,'restApi')
+        if (client.session == null) {
+            res.redirect('/login')
+        } else {
+            auth.check(client.session.id, client.ip, local => {
+                if ((!local.ip) || (!local.user)){
+                    res.redirect('/login')
+                } else {
+                        res.render('center',{
+                            number: local.user.orders.number,
+                            total: local.user.orders.total/1000,
+                            carts: local.user.orders.carts,
+                        })
+                }
+            })
+        }
+    })
 }
