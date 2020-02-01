@@ -140,7 +140,7 @@ jQuery(document).ready(() => {
                 account: jQuery('#bankaccount').val(),
                 branch: jQuery('#bankpin').val(),
     
-                checkStatus: true,
+                checkStatus: false,
             },
             carts: [{
                 img: 'fist',
@@ -185,8 +185,12 @@ jQuery(document).ready(() => {
             jQuery('span#cart_number').replaceWith(`<span class="count bg-primary" id="cart_number">${Number(jQuery('#cart_number').text())+1}</span>`)
         })
     }
-    eventBuy('O7G69T')
-    eventBuy('KPI8LU')
+
+    socket.on('loadsanpham', data => {
+        data.products.forEach((item) => {
+            eventBuy(item.code)
+        })
+    })
 
     socket.on('mycart', data => {
         data.carts.forEach(item => {
@@ -258,4 +262,59 @@ jQuery(document).ready(() => {
         }
     })
 
+    socket.on('xldonhang', data => {
+        data.history.forEach((item) => {
+            console.log(item.id)
+            jQuery(`#phone_${item.id}`).click(() => {
+                socket.emit('goidien',{
+                    id: item.id,
+                    status: "Đã liên hệ"
+                })
+            })
+            jQuery(`#car_${item.id}`).click(() => {
+                socket.emit('giaohang',{
+                    id: item.id,
+                    status: "Đang giao hàng"
+                })
+            })
+            jQuery(`#check_${item.id}`).click(() => {
+                socket.emit('thanhcong',{
+                    id: item.id,
+                    status: "Thành công",
+                    total: Number(jQuery(`#total_${item.id}`).text())
+                })
+                jQuery(`#${item.id}`).replaceWith('<tr></tr>')
+            })
+        })
+    })
+
+    jQuery('#add-product').click(() => {
+        socket.emit('themsp',{
+            code: jQuery('#code').val(),
+            name: jQuery('#name').val(),
+            unit: Number(jQuery('#unit').val()),
+            img: jQuery('#img').val(),
+        })
+    })
+
+    jQuery('#remove-product').click(() => {
+        socket.emit('xoasp',{
+            code: jQuery('#code').val(),
+        })
+    })
+
+    jQuery('#bt-bonus').click(() => {
+        socket.emit('setbonus',{
+            bonus: Number(jQuery('#bonus').val()),
+        })
+    })
+
+    jQuery('#level').click(() => {
+        socket.emit('setlevel',{
+            label: jQuery('#label').val(),
+            text: jQuery('#text').val(),
+            limit: Number(jQuery('#limit').val()),
+            coe: Number(jQuery('#coe').val()),
+        })
+    })
 })

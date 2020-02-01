@@ -50,8 +50,48 @@
                             </div>
                         </div>
                     </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                                <div class="stat-content">
+                                    <div class="text-left dib">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="bonus" placeholder="Hoa hồng giới thiệu">
+                                          </div>
+                                        <button class="btn btn-success btn-block" id="bt-bonus">SET</button>
+                                    </div>
+                                </div>
+                               
+                            <!-- </div> -->
+                        </div>
+                    </div>
                 </div>
-                <!-- /Widgets -->
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="label" placeholder="Kí hiệu">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="text" placeholder="Cấp đại lý">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="limit" placeholder="Giới hạn (<)">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="coe" placeholder="Hoa hồng doanh số">
+                            </div>
+                            <button class="btn btn-success btn-block" id="level">SET</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- .animated -->
         </div>
@@ -62,4 +102,6 @@
     <!-- Copy to clipboard -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
     <script src="./js/copy.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/socket.js"></script>
 </html>

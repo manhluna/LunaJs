@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="vi-VN">
+
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
+    <link rel="manifest" href="/icon/site.webmanifest">
+    <link rel="mask-icon" href="/icon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/icon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="/icon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-param" content="_csrf-frontend">
+    <meta name="csrf-token" content="4o2ASWpem6tw76Jhv4Auwu_iVSDvtME7V0fxK0dBXgG26rEiJxup4SSflVDyrV2HlqoFarf_jVh6CLkYNGwWag==">
+    <title>Trung tâm phân phối | ForViet</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+    <link href="/assets/1906ebcf/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/a4e917cd/css/select2.min.css" rel="stylesheet">
+    <link href="/assets/a4e917cd/css/select2-addl.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="/fonts/font-awesome/css/all.min.css" rel="stylesheet">
+    <link href="/fonts/flat-icons/flaticon.css" rel="stylesheet">
+    <link href="/fonts/cryptocoins/cryptocoins.css" rel="stylesheet">
+    <link href="/fonts/cryptocoins/cryptocoins-colors.css" rel="stylesheet">
+    <link href="/css/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <link href="/css/slick.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/assets/7b6e32c3/yii.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/perfect-scrollbar.js"></script>
+    <script src="/js/slick.min.js"></script>
+    <script src="/js/moment.js"></script>
+    <script src="/js/jquery.webticker.min.js"></script>
+    <script src="/js/Chart.bundle.min.js"></script>
+    <script src="/js/framework.js"></script>
+    <script src="/js/settings.js"></script>
+    <script src="/js/custom.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" defer crossorigin="anonymous"></script>
+</head>
+
+<body class="ms-body ms-aside-left-open ms-primary-theme">
+
+    <div class="ms-aside-overlay ms-overlay-left ms-toggler" data-target="#ms-side-nav" data-toggle="slideLeft"></div>
+    <aside id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left">
+        <div class="logo-sn ms-d-block-lg">
+            <div class="ms-card ms-widget ms-profile-widget ms-card-sidebar">
+                <img src="/img/logo.png" class="ms-img-large ms-img-round ms-user-img" alt="people">
+                <div class="ms-card-body">
+                    <h2>Lương Văn Mạnh</h2>
+                    <span class="label-color" style="display: inline-block;background: #b2c74d;">Cộng tác viên</span>
+                </div>
+            </div>
+        </div>
+        <ul id="side-nav-accordion" class="accordion ms-main-aside fs-14">
+            <li class="menu-item active"><a href="/dashboard.html"><span><i class="material-icons fs-16">dashboard</i>Bảng điều khiển</span></a></li>
+            <li>
+                <hr>
+            </li>
+            <li class="menu-item"><a href="/order.html"><span><i class="material-icons fs-16">beenhere</i>Đặt hàng</span></a></li>
+            <li class="menu-item"><a href="/history.html"><span><i class="material-icons fs-16">history</i>Lịch sử đặt hàng</span></a></li>
+            <li>
+                <hr>
+            </li>
+            <li class="menu-item"><a href="/agency.html"><span><i class="material-icons fs-16">supervisor_account</i>Danh sách đại lý</span></a></li>
+            <li class="menu-item"><a href="/signup.html"><span><i class="material-icons fs-16">how_to_reg</i>Đăng ký</span></a></li>
+            <li>
+                <hr>
+            </li>
+            <li class="menu-item"><a href="/commission.html"><span><i class="material-icons fs-16">assessment</i>Hoa hồng được hưởng</span></a></li>
+            <li>
+                <hr>
+            </li>
+            <li class="menu-item"><a href="/personal.html"><span><i class="material-icons fs-16">assignment_returned</i>Lịch sử mua hàng cá nhân</span></a></li>
+            <li class="menu-item"><a href="/system.html"><span><i class="material-icons fs-16">assignment_ind</i>Lịch sử mua hàng hệ thống</span></a></li>
+            <li>
+                <hr>
+            </li>
+            <li class="menu-item"><a href="/area.html"><span><i class="material-icons fs-16">account_balance</i>Trung tâm phân phối</span></a></li>
+            <li class="menu-item"><a href="/support.html"><span><i class="material-icons fs-16">help</i>Trợ giúp</span></a></li>
+            <li>
+                <hr>
+            </li>
+            <li>
+                <div class="support">
+                    <p><i class="material-icons fs-16">contact_phone</i>: 0969979400</p>
+                    <p><i class="material-icons fs-16">contact_mail</i>: forvietgroup@gmail.com</p>
+                </div>
+            </li>
+        </ul>
+    </aside>
+    <script>
+        var psAside = new PerfectScrollbar($('.ms-aside-scrollable')[0], {
+            maxScrollbarLength: 700,
+            wheelPropagation: true,
+            wheelSpeed: 0.5
+        });
+
+        $(".ms-main-aside").on('click', '.has-chevron', function() {
+            psAside.update();
+        });
+    </script>
+    <!-- Main Content -->
+    <main class="body-content">
+        <!-- Navigation Bar -->
+        <nav class="navbar ms-navbar">
+
+            <div class="ms-aside-toggler ms-toggler pl-0" data-target="#ms-side-nav" data-toggle="slideLeft">
+                <span class="ms-toggler-bar bg-primary"></span>
+                <span class="ms-toggler-bar bg-primary"></span>
+                <span class="ms-toggler-bar bg-primary"></span>
+            </div>
+
+            <div class="logo-sn logo-sm ms-d-block-sm">
+                <a class="pl-0 ml-0 text-center navbar-brand mr-0" href="/"><img src="/img/logo.png" alt="logo">
+		</a>
+            </div>
+
+            <ul class="ms-nav-list ms-inline mb-0" id="ms-nav-options">
+                <li class="ms-nav-item dropdown">
+                    <a href="#" class="text-disabled ms-has-notification" id="mailDropdown" aria-expanded="false"><i class="flaticon-supermarket"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="mailDropdown">
+                        <li class="dropdown-menu-header">
+                            <h6 class="dropdown-header ms-inline m-0"><span class="text-disabled">Giỏ hàng</span></h6>
+                            <span class="badge badge-pill badge-info">0 sản phẩm</span>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li class="ms-scrollable ms-dropdown-list">
+                            <div class="cart-product-meta header">
+                                <div class="cart-product-price">Sản phẩm/Đơn giá</div>
+                                <div class="cart-product-quantity">Số lượng</div>
+                                <div class="cart-product-sub-total">Thành tiền</div>
+                            </div>
+                            <div class="cart-products">
+                                <p style="padding: 20px;">Không có sản phẩm nào trong giỏ hàng!</p>
+                            </div>
+                            <div class="cart-product last">
+                                <div class="cart-product-total">Tổng tiền: <b>0₫</b></div>
+                            </div>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li class="dropdown-menu-footer text-center">
+                            <a href="/order/cart">Đến trang giỏ hàng</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="ms-nav-item ms-nav-user dropdown">
+                    <a href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<img class="ms-user-img ms-img-round float-right" src="https://daily.forviet.vn/img/logo.png?s=200" alt="people">
+			</a>
+                    <ul class="dropdown-menu dropdown-menu-right user-dropdown" aria-labelledby="userDropdown">
+                        <li class="dropdown-menu-header">
+                            <h6 class="dropdown-header ms-inline m-0">
+                                <span class="text-disabled">Xin chào, Lương Văn Mạnh</span></h6>
+                        </li>
+                        <li class="dropdown-divider"></li>
+                        <li class="ms-dropdown-list">
+                            <a class="media fs-14 p-2" href="/user/settings/account">
+						<span><i class="flaticon-gear mr-2"></i> Cài đặt tài khoản</span> </a>
+                            <a class="media fs-14 p-2" href="/user/settings/profile">
+						<span><i class="flaticon-user mr-2"></i> Thông tin cá nhân</span> </a>
+                            <a class="media fs-14 p-2" href="/user/settings/payment">
+						<span><i class="flaticon-layers mr-2"></i> Thông tin thanh toán</span> </a>
+                            <a class="media fs-14 p-2" href="/user/logout" data-method="POST">
+						<span><i class="flaticon-shut-down mr-2"></i> Thoát</span> </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="ms-toggler ms-d-block-sm pr-0 ms-nav-toggler" data-toggle="slideDown" data-target="#ms-nav-options">
+                <span class="ms-toggler-bar bg-primary"></span>
+                <span class="ms-toggler-bar bg-primary"></span>
+                <span class="ms-toggler-bar bg-primary"></span>
+            </div>
+        </nav>
+        <script>
+            $(document).on('click', '.cart-product-action', function() {
+                let th = $(this);
+                let th2 = false;
+                let order_product_id = th.attr('data-order-product-id');
+                let cart;
+                if (th.hasClass('in-header')) {
+                    th2 = $('button:not(.in-header)[data-order-product-id="' + order_product_id + '"]');
+                    cart = th.closest('.ms-dropdown-list');
+                } else {
+                    th2 = $('.in-header[data-order-product-id="' + order_product_id + '"]');
+                    cart = th2.closest('.ms-dropdown-list');
+                }
+                $.ajax({
+                    type: "GET",
+                    cache: false,
+                    url: '/ajax/remove-from-cart',
+                    data: 'order_product_id=' + order_product_id,
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.count <= 0) {
+                            window.location.reload();
+                        }
+                        cart.parent().find('.badge').html(response.count + ' sản phẩm');
+                        th.closest('.cart-product').fadeOut();
+                        if (th2 !== false) {
+                            th2.closest('.cart-product').fadeOut();
+                        }
+                        cart.find('.cart-product-total b').html(response.amount);
+                        $("#total-amount").html(response.amount);
+                    }
+                });
+            });
+        </script>
+        <!-- Body Content Wrapper -->
+        <div class="ms-content-wrapper">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav aria-label="breadcrumb">
+                    </nav>
+                </div>
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+                <div class="col-sm-12">
+                    <div class="ms-panel ms-panel-fh">
+                        <div class="ms-panel-header">
+                            <h6>Trung tâm phân phối</h6>
+                        </div>
+                        <div class="ms-panel-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <iframe width="100%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?hl=vi&q=S%E1%BB%91+21+L%C3%AA+%C4%90%E1%BB%A9c+Th%E1%BB%8D%2C+M%E1%BB%B9+%C4%90%C3%ACnh+2%2C+Qu%E1%BA%ADn+Nam+T%E1%BB%AB+Li%C3%AAm%2C+H%C3%A0+N%E1%BB%99i&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="areas">
+                                        <div class="area active" data-map="https://maps.google.com/maps?hl=vi&q=S%E1%BB%91+21+L%C3%AA+%C4%90%E1%BB%A9c+Th%E1%BB%8D%2C+M%E1%BB%B9+%C4%90%C3%ACnh+2%2C+Qu%E1%BA%ADn+Nam+T%E1%BB%AB+Li%C3%AAm%2C+H%C3%A0+N%E1%BB%99i&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Hà Nội 01</b></p>
+                                            <p>Số 21 Lê Đức Thọ, Mỹ Đình 2, Quận Nam Từ Liêm, Hà Nội</p>
+                                            <p>0359277333</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=15+ng%C3%B5+237+Ng%C3%B4+Xu%C3%A2n+Qu%E1%BA%A3ng%2C+Huy%E1%BB%87n+Gia+L%C3%A2m%2C+H%C3%A0+N%E1%BB%99i&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Hà Nội 02</b></p>
+                                            <p>15 ngõ 237 Ngô Xuân Quảng, Huyện Gia Lâm, Hà Nội</p>
+                                            <p>0969979400</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=Khu+Chung+C%C6%B0+C%C3%A1t+T%C6%B0%E1%BB%9Dng+ECO%2C+Ph%C6%B0%E1%BB%9Dng+V%C3%B5+C%C6%B0%E1%BB%9Dng%2C+Th%C3%A0nh+Ph%E1%BB%91+B%E1%BA%AFc+Ninh%2C+T%E1%BB%89nh+B%E1%BA%AFc+Ninh&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Bắc Ninh 01</b></p>
+                                            <p>Khu Chung Cư Cát Tường ECO, Phường Võ Cường, Thành Phố Bắc Ninh, Tỉnh Bắc Ninh</p>
+                                            <p>0969147823 - 0963067611</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=s%E1%BB%91+2+Mai+H%E1%BA%AFc+%C4%90%E1%BA%BF%2C+Th%C3%A0nh+Ph%E1%BB%91+Vinh%2C+T%E1%BB%89nh+Ngh%E1%BB%87+An+&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Nghê An 01</b></p>
+                                            <p>số 2 Mai Hắc Đế, Thành Phố Vinh, Tỉnh Nghệ An </p>
+                                            <p>0377353191 </p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=71+L%C3%AA+Qu%C3%BD+%C4%90%C3%B4n%2C+Gia+C%E1%BB%95ng%2C+Vi%E1%BB%87t+Tr%C3%AC%2C+Ph%C3%BA+Th%E1%BB%8D&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Phú Thọ 01</b></p>
+                                            <p>71 Lê Quý Đôn, Gia Cổng, Việt Trì, Phú Thọ</p>
+                                            <p>0965309916</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=385+Nguy%E1%BB%85n+Tr%C3%A3i%2C+Ph%C6%B0%E1%BB%9Dng+Ph%C3%BA+S%C6%A1n+.+Thanh+H%C3%B3a&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Thanh Hóa 01</b></p>
+                                            <p>385 Nguyễn Trãi, Phường Phú Sơn . Thanh Hóa</p>
+                                            <p>0936298736</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=42%2F3C+Th%E1%BB%A7+Khoa+Hu%C3%A2n%2C+Ph%C6%B0%E1%BB%9Dng+B%C3%ACnh+H%C6%B0ng%2C+Th%C3%A0nh+Ph%E1%BB%91+Phan+Thi%E1%BA%BFt%2C+T%E1%BB%89nh+B%C3%ACnh+thu%E1%BA%ADn&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Bình Thuận 01</b></p>
+                                            <p>42/3C Thủ Khoa Huân, Phường Bình Hưng, Thành Phố Phan Thiết, Tỉnh Bình thuận</p>
+                                            <p>0933298839 - 0966505639</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=206+Ho%C3%A0ng+Hoa+Th%C3%A1m%2C+Ph%C6%B0%E1%BB%9Dng+13%2C+Qu%E1%BA%ADn+T%C3%A2n+B%C3%ACnh%2C+Th%C3%A0nh+Ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Sài Gòn 01</b></p>
+                                            <p>206 Hoàng Hoa Thám, Phường 13, Quận Tân Bình, Thành Phố Hồ Chí Minh</p>
+                                            <p>0983537568</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=%C4%90%E1%BB%93ng+B%E1%BA%A3ng%2C+Mai+Ch%C3%A2u%2C+H%C3%B2a+B%C3%ACnh&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Hòa Bình 01</b></p>
+                                            <p>Đồng Bảng, Mai Châu, Hòa Bình</p>
+                                            <p>0852672777</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=Th%C3%B4n+T%C3%A2n+Ph%C3%BAc%2C+X%C3%A3+T%C3%A2n+Tr%C6%B0%E1%BB%9Dng%2C+Huy%E1%BB%87n+T%E1%BB%89nh+Gia%2C+T%E1%BB%89nh+Thanh+H%C3%B3a&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Thanh Hóa 02</b></p>
+                                            <p>Thôn Tân Phúc, Xã Tân Trường, Huyện Tỉnh Gia, Tỉnh Thanh Hóa</p>
+                                            <p>0974968889</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=L%C3%B4+17-06+khu+%C4%91%C3%B4+th%E1%BB%8B+m%E1%BB%9Bi+ven+s%C3%B4ng+h%E1%BA%A1c+ph%C6%B0%E1%BB%9Dng+%C4%90%C3%B4ng+Th%E1%BB%8D+TP+THANH+H%C3%93A+&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Thanh Hóa 03</b></p>
+                                            <p>Lô 17-06 khu đô thị mới ven sông hạc phường Đông Thọ TP THANH HÓA </p>
+                                            <p>0983851869</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=Ch%E1%BB%A3+Y%C3%AAn+Kh%C3%A1nh%2C&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Ninh Bình 01</b></p>
+                                            <p>Chợ Yên Khánh,</p>
+                                            <p>0962.137.522</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=C%E1%BB%95ng+Khu+C%C3%B4ng+Nghi%E1%BB%87p%2C+Su%E1%BB%91i+D%E1%BA%A7u+%2C+Su%E1%BB%91i+T%C3%A2n%2C+Th%E1%BB%8B+Tr%E1%BA%A5n+Cam+L%C3%A2m%2C+Kh%C3%A1nh+H%C3%B2a&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Khánh Hòa 01</b></p>
+                                            <p>Cổng Khu Công Nghiệp, Suối Dầu , Suối Tân, Thị Trấn Cam Lâm, Khánh Hòa</p>
+                                            <p>0938324839 - 0858040960</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=3+T%E1%BB%95+14B%2C+Kh%C6%B0%C6%A1ng+Mai%2C+Thanh+Xu%C3%A2n%2C+H%C3%A0+N%E1%BB%99i&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Hà Nội 03</b></p>
+                                            <p>3 Tổ 14B, Khương Mai, Thanh Xuân, Hà Nội</p>
+                                            <p>0917534379</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=111%2F8%2F15+V%C6%B0%E1%BB%9Dn+L%C3%A0i%2C+Ph%C6%B0%E1%BB%9Dng+Ph%C3%BA+Th%E1%BB%8D+H%C3%B2a%2C+Qu%E1%BA%ADn+T%C3%A2n+Ph%C3%BA%2C+TP.+H%E1%BB%93+Ch%C3%AD+Minh&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Sài Gòn 03</b></p>
+                                            <p>111/8/15 Vườn Lài, Phường Phú Thọ Hòa, Quận Tân Phú, TP. Hồ Chí Minh</p>
+                                            <p>0963948112</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=T%E1%BB%95+23%2C+khu+ph%E1%BB%91+4%2C+ph%C6%B0%E1%BB%9Dng+Tr%E1%BA%A3ng+D%C3%A0i%2C+Bi%C3%AAn+H%C3%B2a%2C+%C4%90%E1%BB%93ng+Nai&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Đồng Nai 01</b></p>
+                                            <p>Tổ 23, khu phố 4, phường Trảng Dài, Biên Hòa, Đồng Nai</p>
+                                            <p> 0796579886 - 0383281727</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=142+Tr%E1%BA%A7n+Quang+Di%E1%BB%87u%2C+KP1%2C+Ph%C6%B0%E1%BB%9Dng+Xu%C3%A2n+An%2C+TP.+Phan+Thi%E1%BA%BFt%2C+B%C3%ACnh+Thu%E1%BA%ADn&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Bình Thuận 02</b></p>
+                                            <p>142 Trần Quang Diệu, KP1, Phường Xuân An, TP. Phan Thiết, Bình Thuận</p>
+                                            <p>0914180084</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=29+%C4%91%C6%B0%E1%BB%9Dng+s%E1%BB%91+10.+Khu+ph%E1%BB%91+4.ph%C6%B0%E1%BB%9Dng+%3A+Hi%E1%BB%87p+B%C3%ACnh+ch%C3%A1nh.Q+.+Th%E1%BB%A7+%C4%91%E1%BB%A9c.+Tp.+HCM.&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Sài Gòn  02</b></p>
+                                            <p>29 đường số 10. Khu phố 4.phường : Hiệp Bình chánh.Q . Thủ đức. Tp. HCM.</p>
+                                            <p>0949 357 308</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=Th%C3%B4n+vinh+quang+%2Cho%C3%A0i+%C4%91%E1%BB%A9c%2Cl%C3%A2m+h%C3%A0+%2Cl%C3%A2m+%C4%91%E1%BB%93ng&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Lâm Đồng 01</b></p>
+                                            <p>Thôn vinh quang ,hoài đức,lâm hà ,lâm đồng</p>
+                                            <p>0359808782 - 0888181386</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=X%C3%B3m+3%2C+Th%C3%B4n+T%C3%B2ng+L%E1%BB%87nh%2C+X%C3%A3+T%C3%B2ng+B%E1%BA%A1t%2C+Huy%E1%BB%87n+Ba+V%C3%AC%2C+H%C3%A0+N%E1%BB%99i&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Ba Vì - Hà Nội 68</b></p>
+                                            <p>Xóm 3, Thôn Tòng Lệnh, Xã Tòng Bạt, Huyện Ba Vì, Hà Nội</p>
+                                            <p>0973.763.471</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=Ninh+D%C3%A2n%2C+Thanh+Ba%2C+Ph%C3%BA+Th%E1%BB%8D&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Phú Thọ 03 Thạch Thất 01</b></p>
+                                            <p>Ninh Dân, Thanh Ba, Phú Thọ</p>
+                                            <p>0374269159</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=khu+h%C3%A0nh+ch%C3%ADnh+T%C3%A2n+Th%C3%A0nh+%2C+th%E1%BB%8B+tr%E1%BA%A5n+%C4%90oan+h%C3%B9ng%2C+huy%E1%BB%87n+%C4%90oan+h%C3%B9ng%2C+t%E1%BB%89nh+Ph%C3%BA+th%E1%BB%8D+.+&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Phú Thọ 02</b></p>
+                                            <p>khu hành chính Tân Thành , thị trấn Đoan hùng, huyện Đoan hùng, tỉnh Phú thọ . </p>
+                                            <p>0979999112</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=X%C3%B3m+2%2C+Th%E1%BB%A7y+L%C3%B4i%2C+Kim+B%E1%BA%A3n%2C+H%C3%A0+Nam&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Hà Nam 01</b></p>
+                                            <p>Xóm 2, Thủy Lôi, Kim Bản, Hà Nam</p>
+                                            <p>0982795365</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=57+Ng%C3%B4+Quy%E1%BB%81n%2C++Ph%C6%B0%E1%BB%9Dng+5%2C+Th%C3%A0nh+Ph%E1%BB%91+Tuy+H%C3%B2a%2C+T%E1%BB%89nh+Ph%C3%BA+Y%C3%AAn&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Phú Yên 01</b></p>
+                                            <p>57 Ngô Quyền, Phường 5, Thành Phố Tuy Hòa, Tỉnh Phú Yên</p>
+                                            <p>0913933168</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=Khu+1%2C+H%C6%B0%E1%BB%9Bng+%C4%90%E1%BA%A1o%2C+Tam+D%C6%B0%C6%A1ng%2C+V%C4%A9nh+Ph%C3%BAc&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung tâm Phân Phối Vĩnh Phúc 01</b></p>
+                                            <p>Khu 1, Hướng Đạo, Tam Dương, Vĩnh Phúc</p>
+                                            <p>0989974888</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=Th%C3%B4n+Gia+L%E1%BB%99c%2C+V%C3%A2n+T%E1%BB%91%2C+T%E1%BB%A9+K%E1%BB%B3%2C+H%E1%BA%A3i+D%C6%B0%C6%A1ng&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Hải Dương 01</b></p>
+                                            <p>Thôn Gia Lộc, Vân Tố, Tứ Kỳ, Hải Dương</p>
+                                            <p>0975.226.168</p>
+                                        </div>
+                                        <div class="area " data-map="https://maps.google.com/maps?hl=vi&q=Ph%E1%BB%91+Bi%C3%AAn+S%C6%A1n%2C+X%C3%A3+Bi%C3%AAn+S%C6%A1n%2C+Huy%E1%BB%87n+L%E1%BB%A5c+Ng%E1%BA%A1n%2C+T%E1%BB%89nh+B%E1%BA%AFc+Giang&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                            <p><b>Trung Tâm Phân Phối Bắc Giang 01</b></p>
+                                            <p>Phố Biên Sơn, Xã Biên Sơn, Huyện Lục Ngạn, Tỉnh Bắc Giang</p>
+                                            <p> 0399031369</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    $(document).on('click', '.area', function() {
+                        let th = $(this);
+                        $('.area').removeClass('active');
+                        th.addClass('active');
+                        $("#gmap_canvas")[0].src = th.attr('data-map');
+                    });
+                    var psAside = new PerfectScrollbar($('.areas')[0], {
+                        maxScrollbarLength: 700,
+                        wheelPropagation: true,
+                        wheelSpeed: 0.5
+                    });
+                </script>
+            </div>
+        </div>
+    </main>
+    <script src="/assets/a4e917cd/js/select2.full.min.js"></script>
+    <script src="/assets/a4e917cd/js/select2-krajee.min.js"></script>
+</body>
+
+</html>

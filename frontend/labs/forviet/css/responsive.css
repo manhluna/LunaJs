@@ -1,0 +1,39 @@
+@media screen and (max-width: 414px) {
+    table.hide-thead>thead {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .ms-navbar .dropdown-menu {
+        min-width: auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .kv-table-wrap th,
+    .kv-table-wrap td {
+        display: table-cell;
+        min-width: 100px;
+        width: auto !important;
+    }
+    .kv-grid-container {
+        overflow-x: scroll;
+    }
+    .kv-table-wrap tr>td:first-child {
+        border-top: 1px solid #dee2e6;
+        margin-top: 0;
+        font-size: 14px;
+    }
+    .kv-table-wrap tr>td:first-child,
+    .kv-table-wrap tr>th:first-child {
+        min-width: 20px;
+    }
+    .kv-table-wrap th,
+    .kv-table-wrap td {
+        font-size: 14px;
+    }
+    .frontend-filter label.control-label {
+        text-align: left !important;
+    }
+}

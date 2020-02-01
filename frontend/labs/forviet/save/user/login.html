@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi-VN">
+
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
+    <link rel="manifest" href="/icon/site.webmanifest">
+    <link rel="mask-icon" href="/icon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/icon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="/icon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-param" content="_csrf-frontend">
+    <meta name="csrf-token" content="omEe1-pSguTYkKxhRo1_46Axbj9uhm-PI351-xq5xK3IPlCZogbtrrnxyDcZ-TmGxXgrEhryH8hECke6QIuHnw==">
+    <title>Đăng nhập | ForViet</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="/fonts/font-awesome/css/all.min.css" rel="stylesheet">
+    <link href="/fonts/flat-icons/flaticon.css" rel="stylesheet">
+    <link href="/fonts/cryptocoins/cryptocoins.css" rel="stylesheet">
+    <link href="/fonts/cryptocoins/cryptocoins-colors.css" rel="stylesheet">
+    <link href="/css/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <link href="/css/slick.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/assets/7b6e32c3/yii.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/perfect-scrollbar.js"></script>
+    <script src="/js/slick.min.js"></script>
+    <script src="/js/moment.js"></script>
+    <script src="/js/jquery.webticker.min.js"></script>
+    <script src="/js/Chart.bundle.min.js"></script>
+    <script src="/js/framework.js"></script>
+    <script src="/js/settings.js"></script>
+    <script src="/js/custom.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" defer crossorigin="anonymous"></script>
+</head>
+
+<body class="ms-body ms-primary-theme">
+
+    <!-- Main Content -->
+    <main class="body-content">
+        <!-- Body Content Wrapper -->
+        <div class="ms-content-wrapper ms-auth">
+            <div class="ms-auth-container">
+                <div class="ms-auth-col">
+                    <div class="ms-auth-bg"></div>
+                </div>
+                <div class="ms-auth-col">
+                    <div class="ms-auth-form">
+                        <form id="login-form" class="needs-validation" action="/user/login" method="post">
+                            <input type="hidden" name="_csrf-frontend" value="omEe1-pSguTYkKxhRo1_46Axbj9uhm-PI351-xq5xK3IPlCZogbtrrnxyDcZ-TmGxXgrEhryH8hECke6QIuHnw==">
+                            <h1>Đăng nhập hệ thống</h1>
+                            <p>Vui lòng nhập tài khoản và mật khẩu để tiếp tục</p>
+                            <div class="mb-3">
+                                <div class="form-group field-login-form-login required">
+                                    <label class="" for="login-form-login">Đăng nhập</label>
+                                    <div class="input-group"><input type="text" id="login-form-login" class="form-control" name="login-form[login]" autofocus="autofocus" tabindex="1" placeholder="Email hoặc tài khoản" aria-required="true">
+                                        <div class="help-block"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="form-group field-login-form-password required">
+                                    <label class="" for="login-form-password">Mật khẩu</label>
+                                    <div class="input-group"><input type="password" id="login-form-password" class="form-control" name="login-form[password]" autofocus="autofocus" tabindex="1" placeholder="Mật khẩu" aria-required="true">
+                                        <div class="help-block"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="ms-checkbox-wrap">
+						<input name="login-form[rememberMe]" type="hidden" value="0">
+						<input class="form-check-input" id="login-form_rememberMe" name="login-form[rememberMe]" type="checkbox" value="1">
+						<i class="ms-checkbox-check"></i>
+					</label>
+                                <label for="login-form_rememberMe"> Nhớ đăng nhập </label>
+                                <label class="d-block mt-3"><a href="/user/forgot" class="btn-link">Quên mật khẩu?</a></label>
+                            </div>
+                            <button class="btn btn-primary mt-4 d-block w-100" type="submit">Đăng nhập</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/assets/7b6e32c3/yii.validation.js"></script>
+    <script src="/assets/7b6e32c3/yii.activeForm.js"></script>
+    <script>
+        jQuery(function($) {
+            jQuery('#login-form').yiiActiveForm([{
+                "id": "login-form-login",
+                "name": "login",
+                "container": ".field-login-form-login",
+                "input": "#login-form-login",
+                "validate": function(attribute, value, messages, deferred, $form) {
+                    yii.validation.required(value, messages, {
+                        "message": "Đăng nhập không được để trống."
+                    });
+                    value = yii.validation.trim($form, attribute, [], value);
+                }
+            }, {
+                "id": "login-form-password",
+                "name": "password",
+                "container": ".field-login-form-password",
+                "input": "#login-form-password",
+                "validate": function(attribute, value, messages, deferred, $form) {
+                    yii.validation.required(value, messages, {
+                        "message": "Mật khẩu không được để trống."
+                    });
+                }
+            }], []);
+        });
+    </script>
+</body>
+
+</html>

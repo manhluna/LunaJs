@@ -2,25 +2,62 @@
 <html class="no-js" lang="">
 <head>
     <%- include("modular/headTag") -%>
+
+    <link href="forviet/css/style.css" rel="stylesheet">
+    <link href="forviet/css/custom.css" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <script src="forviet/js/perfect-scrollbar.js"></script>
 </head>
 
-<body onload="init()">
+<body>
     <%- include("modular/leftPanel") -%>
 
     <div id="right-panel" class="right-panel">
-        <%- include("modular/header") -%>
+        <header id="header" class="header">
+            <div class="top-left">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="./"><img src="ElaAdmin/images/logo.png" alt="Logo"></a>
+                    <a class="navbar-brand hidden" href="./"><img src="ElaAdmin/images/logo2.png" alt="Logo"></a>
+                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+                </div>
+            </div>
+            <div class="top-right">
+                <div class="header-menu">
+        
+                    <div class="user-area dropdown float-right">
+                        <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="user-avatar rounded-circle" src="ElaAdmin/images/admin.jpg" alt="User Avatar">
+                        </a>
+        
+                        <div class="user-menu dropdown-menu">
+        
+                            <a class="nav-link" href="/profile"><i class="fa fa- user"></i>Hồ Sơ</a>
+        
+                            <a class="nav-link" href="/setting"><i class="fa fa -cog"></i>Cài Đặt</a>
+        
+                            <a class="nav-link" href="/logout"><i class="fa fa-power -off"></i>Thoát</a>
+        
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+        </header>
 
         <div class="content">
             <div class="animated fadeIn">
                 <div class="row">
+                    <div class="col">
                     <%- include("modular/area") -%>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <%- include("modular/scriptTag") -%>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="./js/socket.js"></script>
 </body>
 </html>

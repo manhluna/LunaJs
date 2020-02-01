@@ -59,7 +59,7 @@ module.exports = (app) => {
             auth.admin(client.session.id, client.ip, local => {
                     res.render('panel',{
                         users: local.admin.users,
-                        sales: local.admin.sales
+                        sales: local.admin.sales/1000
                     })
             })
         }
@@ -71,7 +71,22 @@ module.exports = (app) => {
             res.redirect('/admin')
         } else {
             auth.admin(client.session.id, client.ip, local => {
-                    res.render('check')
+                    res.render('check',{
+                        history: local.admin.history
+                    })
+            })
+        }
+    })
+
+    app.get('/add',(req,res) => {
+        const client = auth.get(req,'restApi')
+        if (client.session == null) {
+            res.redirect('/admin')
+        } else {
+            auth.admin(client.session.id, client.ip, local => {
+                    res.render('add',{
+                        products: local.admin.products
+                    })
             })
         }
     })

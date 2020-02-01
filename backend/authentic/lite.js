@@ -49,6 +49,12 @@ const admin = (session, nowIp,cb) => {
     })
 }
 
+const view = (session) => {
+    const idHex = session.slice(1, Number(session[0])*2+1)
+    const id = decrypt(idHex)
+    return id
+}
+
 const get = (protocol,type) => {
     if (type == 'socket') {
         return {
@@ -70,5 +76,6 @@ module.exports = {
     get: get,
     set: enSession,
     check: deSession,
-    admin: admin
+    admin: admin,
+    view: view,
 }

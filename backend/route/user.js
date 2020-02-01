@@ -62,12 +62,20 @@ module.exports = (app) => {
             if (req.query.code !== '0' ){
                 res.redirect('verify')
                 bcrypt.hash(req.query.password, 7, (err, hash) => {
-                    const schema = req.query
-                    schema.password = hash
-                    db.action(db.admin, {id: 'admin'}, {$inc: {'users': 1}}, doc => {
-                        schema.id = doc.users + 142857
-                        console.log(schema)
-                        db.save(db.user, schema)
+
+                    db.action(db.user, {'id': req.query.code}, null, (xdoc) => {
+                        let s = xdoc.code.slice(1,4)
+                        s.push(Number(req.query.code))
+
+                        const schema = req.query
+                        schema.password = hash
+                        schema.code = s
+                        db.action(db.admin, {role: 'admin'}, {$inc: {'users': 1}}, doc => {
+                            schema.id = doc.users + 142858
+                            console.log(schema)
+                            db.save(db.user, schema)
+                        })
+
                     })
                 })
             } else {
@@ -149,36 +157,59 @@ module.exports = (app) => {
         })
     })
 
-    const rankString = (rank) =>{
-        switch (rank){
-            case 0: return 'Chưa Kích Hoạt'
-            case 1: return 'Cộng Tác Viên'
-            case 2: return 'Đại Lý Bán Lẻ'
-            case 3: return 'Đại Lý Bán Buôn'
-            case 4: return 'Đại Lý Cấp 1'
-            case 5: return 'Tổng Đại Lý'
-            case 6: return 'Nhà Phân Phối'
+    const getRank = (ds, level) => {
+        for (let i = 0; i < level.length; i++) {
+            if (ds < level[i].limit) {
+                return level[i]
+            }
         }
     }
-    const dashboard = doc => {
-        return {
-            number: doc.orders.number,
-            total: doc.orders.total /1000,
-            carts: doc.orders.carts,
-            person: doc.person,
-            system: doc.system,
-            profit: doc.profit,
-            agency: doc.agency,
-            code: (doc.wizard.checkStatus == true) ? `https://thienminhhungphat.com/signup?code=${doc.id}`: `Chưa kích hoạt !`,
-            rank: rankString(doc.rank),
-            ch: {amount: doc.ch.amount, revenue: doc.ch.revenue},
-            ctv: {amount: doc.ctv.amount, revenue: doc.ctv.revenue},
-            dlbl: {amount: doc.dlbl.amount, revenue: doc.dlbl.revenue},
-            dlbb: {amount: doc.dlbb.amount, revenue: doc.dlbb.revenue},
-            dlcm: {amount: doc.dlcm.amount, revenue: doc.dlcm.revenue},
-            tdl: {amount: doc.tdl.amount, revenue: doc.tdl.revenue},
-            npp: {amount: doc.npp.amount, revenue: doc.npp.revenue},
-        }
+
+    const dashboard = (doc,cb) => {
+        var amount = new Map()
+        var  revenue = new Map()
+        db.action(db.admin, {role: 'admin'}, null, ad => {
+            db.user.find({code: doc.id}, (err, xdoc) => {
+                const bonus = xdoc.length*ad.bonus
+                xdoc.forEach((item) => {
+                    //Cap bac cua con
+                    const lv = getRank(item.person + item.system, ad.level)
+
+                    //Dem so luong user moi cap
+                    if (amount.get(lv.label) == undefined){
+                        amount.set(lv.label,0)
+                    }
+                    amount.set(lv.label, amount.get(lv.label)+1)
+
+                    //Tinh tong doanh so theo tung cap
+                    if (revenue.get(lv.label) == undefined){
+                        revenue.set(lv.label,0)
+                    }
+                    amount.set(lv.label, amount.get(lv.label)+item.person)
+                })
+                cb({
+                    number: doc.orders.number,
+                    total: doc.orders.total /1000,
+                    carts: doc.orders.carts,
+
+                    person: doc.person,
+                    system: doc.system,
+
+                    profit: doc.profit + bonus,
+                    agency: xdoc.length,
+
+                    code: (doc.wizard.checkStatus == true) ? `https://thienminhhungphat.com/signup?code=${doc.id}`: `Chưa kích hoạt !`,
+                    rank: getRank(doc.person + doc.system, ad.level).text,
+
+                    ctv: {amount: amount.get('ctv') || 0, revenue: revenue.get('ctv') || 0},
+                    dlbl: {amount: amount.get('dlbl') || 0, revenue: revenue.get('dlbl') || 0},
+                    dlbb: {amount: amount.get('dlbb') || 0, revenue: revenue.get('dlbb') || 0},
+                    dlcm: {amount: amount.get('dlcm') || 0, revenue: revenue.get('dlcm') || 0},
+                    tdl: {amount: amount.get('tdl') || 0, revenue: revenue.get('tdl') || 0},
+                    npp: {amount: amount.get('npp') || 0, revenue: revenue.get('npp') || 0},
+                })
+            }) 
+        })
     }
 
     app.get('/dashboard',(req,res) => {
@@ -190,7 +221,9 @@ module.exports = (app) => {
                 if ((!local.ip) || (!local.user)){
                     res.redirect('/login')
                 } else {
-                    res.render('dashboard',dashboard(local.user))
+                    dashboard(local.user, xo => {
+                        res.render('dashboard', xo)
+                    })
                 }
             })
         }
@@ -211,7 +244,9 @@ module.exports = (app) => {
                         req.session.user = {
                             id: sessionId,
                         }
-                        res.render('dashboard',dashboard(doc))
+                        dashboard(doc, xo => {
+                            res.render('dashboard', xo)
+                        })
                     }
                 })
             }
@@ -254,11 +289,14 @@ module.exports = (app) => {
                 if ((!local.ip) || (!local.user)){
                     res.redirect('/login')
                 } else {
+                    db.action(db.admin, {role: 'admin'}, null, doc => {
                         res.render('orders',{
                             number: local.user.orders.number,
                             total: local.user.orders.total /1000,
                             carts: local.user.orders.carts,
+                            products: doc.products
                         })
+                    })
                 }
             })
         }
