@@ -1,4 +1,5 @@
 require('dotenv').config()
+var siofu = require("socketio-file-upload")
 const express = require('express')
 const app = express()
 const http = require('http').createServer(app)
@@ -23,6 +24,7 @@ const sharedsession = require("express-socket.io-session")
 
 app.use(flash())
 app.use(cors())
+app.use(siofu.router)
 
 // --> Json req - res
 app.use(bodyParser.json())
@@ -52,7 +54,7 @@ io.use(sharedsession(session, {
   autoSave:true
 }))
 
-socketServer(io)
+socketServer(io,siofu)
 
 //Starting Server
 http.listen(process.env.http_port || process.env.PORT,()=>{

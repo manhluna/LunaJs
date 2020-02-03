@@ -1,0 +1,98 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <%- include("modular/headTag") -%>
+    <link rel="stylesheet" href="css/pic.css">
+</head>
+
+<body>
+    <%- include("modular/leftPanel") -%>
+
+    <div id="right-panel" class="right-panel">
+        <%- include("modular/header") -%>
+
+        <div class="content">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Thông Tin Người Dùng</strong>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="stat-content">
+                                        <label for="username">Tên Người Dùng</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="username" value="<%=user.username %>">
+                                        </div>
+
+                                        <label for="phone">Số Điện Thoại</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="phone" value="<%=user.phone %>">
+                                        </div>
+
+                                        <label for="email">Hòm Thư</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="email" value="<%=user.email %>">
+                                        </div>
+
+                                        <label for="bank">Ngân Hàng</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="bank" value="<%=user.wizard.bank %>">
+                                        </div>
+
+                                        <label for="branch">Chi Nhánh</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="branch" value="<%=user.wizard.branch %>">
+                                        </div>
+
+                                        <label for="owner">Chủ Tài Khoản</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="owner" value="<%=user.wizard.owner %>">
+                                        </div>
+
+                                        <label for="account">Số Tài Khoản</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="account" value="<%=user.wizard.account %>">
+                                        </div>
+
+                                        <button class="btn btn-success btn-block" id="change_info" data-user="<%= id%>">Lưu Thay Đổi</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6 col-md-6">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Cập Nhật Avatar</strong>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="stat-content">
+
+                                    <img id="avt" style="margin: 0px 200px 0px 75px;width:300px;height:300px;" src="/images/avatars/<%= avatar %>" alt="Chưa Cập Nhật Hình Ảnh">
+                                    <div class="form-group inputDnD">
+                                        <input type="file" name="image" class="form-control-file text-success font-weight-bold input-group input-file" id="siofu_input" accept="image/*"  data-title="Drag and drop a file">
+                                        <button name="upload" class="btn btn-success btn-block" id='upload' data-user="<%= id %>">Cập Nhật</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include("modular/scriptTag") -%>
+    <script src="/siofu/client.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/socket.js"></script>
+</body>
+</html>

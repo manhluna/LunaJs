@@ -1,7 +1,6 @@
 require('dotenv').config()
 const nodemailer = require('nodemailer')
-const html = '<p>Link: </p>'
-module.exports = (mail,text) => {
+module.exports = (mail,text, html) => {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -13,9 +12,9 @@ module.exports = (mail,text) => {
     const mailOptions = {
         from: process.env.usermail,
         to: mail,
-        subject: `Authenticate Account`,
+        subject: `Thiên Minh Hưng Phát`,
         text: text,
-        // html: html,
+        html: html,
     }
     
     transporter.sendMail(mailOptions, (err, res) => {if (err) { 

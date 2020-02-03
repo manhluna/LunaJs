@@ -33,6 +33,16 @@ module.exports = (app) => {
             }
     })
 
+    app.get('/logout',(req, res) => {
+        req.session.destroy(function(err) {
+            res.redirect('/')
+        })
+    })
+
+    app.get('/', (req, res) => {
+        res.render('index')
+    })
+
     app.post('/panel',(req,res) => {
         db.action(db.admin, {'email': req.body.email}, null, (doc) => {
                 bcrypt.compare(md5(req.body.password), doc.password, (err, equal) => {
@@ -72,7 +82,8 @@ module.exports = (app) => {
         } else {
             auth.admin(client.session.id, client.ip, local => {
                     res.render('check',{
-                        history: local.admin.history
+                        history: local.admin.history,
+                        bank: local.admin.bank
                     })
             })
         }
@@ -88,6 +99,45 @@ module.exports = (app) => {
                         products: local.admin.products
                     })
             })
+        }
+    })
+
+    const getRank = (ds, level) => {
+        for (let i = 0; i < level.length; i++) {
+            if (ds < level[i].limit) {
+                return level[i]
+            }
+        }
+    }
+
+    app.get('/users',(req,res) => {
+        const client = auth.get(req,'restApi')
+        if (client.session == null) {
+            res.redirect('/admin')
+        } else {
+            auth.admin(client.session.id, client.ip, local => {
+                db.action(db.user, null, null, doc => {
+                    db.action(db.admin, {role: 'admin'}, null, ad => {
+                        doc.forEach((item) => {
+                            item.rank = getRank(item.person + item.system, ad.level).text
+                        })
+                        res.render('users',{
+                            users: doc
+                        })
+                    })
+                })
+            })
+        }
+    })
+
+    app.get('/export/:file',(req, res) => {
+        const client = auth.get(req,'restApi')
+        if (client.session !== null) {
+
+            const file = req.params['file']
+            const filePath =  path.join(__dirname, '..', '..') + '/' + file
+            console.log(filePath)
+            res.sendFile(filePath)
         }
     })
 }

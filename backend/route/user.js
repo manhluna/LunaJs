@@ -27,7 +27,23 @@ module.exports = (app) => {
         if (req.body.code == null) {
             verify = `http://${process.env.host}:${process.env.http_port}/comfirm?email=${auth.en(req.body.email)}&password=${md5(req.body.password)}&code=0&time=${Date.now()}`
         }
-        mail(req.body.email, verify)
+        const html = `<h3>Bấm vào nút "Xác Nhận" để hoàn thành:</h3>
+        <table width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+            <td>
+                <table cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td style="border-radius: 2px;" bgcolor="#ED2939">
+                            <a href="${verify}" style="padding: 8px 12px; border: 1px solid #ED2939;border-radius: 2px;font-family: Helvetica, Arial, sans-serif;font-size: 14px; color: #ffffff;text-decoration: none;font-weight:bold;display: inline-block;">
+                            Xác Nhận             
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+      </table>`
+        mail(req.body.email, '', html)
     })
 
     app.get('/login',(req,res) => {
@@ -153,8 +169,12 @@ module.exports = (app) => {
 
     app.get('/logout',(req, res) => {
         req.session.destroy(function(err) {
-            res.render('/')
+            res.redirect('/login')
         })
+    })
+
+    app.get('/', (req, res) => {
+        res.render('index')
     })
 
     const getRank = (ds, level) => {
@@ -169,7 +189,8 @@ module.exports = (app) => {
         var amount = new Map()
         var  revenue = new Map()
         db.action(db.admin, {role: 'admin'}, null, ad => {
-            db.user.find({code: doc.id}, (err, xdoc) => {
+            db.user.find({code: doc.id, 'wizard.checkStatus': true}, (err, xdoc) => {
+                console.log(xdoc.length, ad.bonus)
                 const bonus = xdoc.length*ad.bonus
                 xdoc.forEach((item) => {
                     //Cap bac cua con
@@ -185,17 +206,20 @@ module.exports = (app) => {
                     if (revenue.get(lv.label) == undefined){
                         revenue.set(lv.label,0)
                     }
-                    amount.set(lv.label, amount.get(lv.label)+item.person)
+                    revenue.set(lv.label, revenue.get(lv.label)+item.person)
                 })
                 cb({
+                    id: doc.id,
                     number: doc.orders.number,
                     total: doc.orders.total /1000,
+                    avatar: doc.avatar,
                     carts: doc.orders.carts,
 
-                    person: doc.person,
-                    system: doc.system,
+                    person: doc.person /1000,
+                    system: doc.system /1000,
 
                     profit: doc.profit + bonus,
+                    received: doc.received,
                     agency: xdoc.length,
 
                     code: (doc.wizard.checkStatus == true) ? `https://thienminhhungphat.com/signup?code=${doc.id}`: `Chưa kích hoạt !`,
@@ -267,12 +291,14 @@ module.exports = (app) => {
                             number: local.user.orders.number,
                             total: local.user.orders.total /1000,
                             carts: local.user.orders.carts,
+                            avatar: local.user.avatar,
                         })
                     } else {
                         res.render('initial',{
                             number: local.user.orders.number,
                             total: local.user.orders.total /1000,
                             carts: local.user.orders.carts,
+                            avatar: local.user.avatar
                         })
                     }
                 }
@@ -294,6 +320,7 @@ module.exports = (app) => {
                             number: local.user.orders.number,
                             total: local.user.orders.total /1000,
                             carts: local.user.orders.carts,
+                            avatar: local.user.avatar,
                             products: doc.products
                         })
                     })
@@ -315,11 +342,24 @@ module.exports = (app) => {
                             number: local.user.orders.number,
                             total: local.user.orders.total/1000,
                             carts: local.user.orders.carts,
+                            avatar: local.user.avatar
                         })
                 }
             })
         }
     })
+
+    const mix = (doc,cb) => {
+        db.user.find({code: doc.id, 'wizard.checkStatus': true}, (err, xdoc) => {
+            var mixHistory =[]
+            xdoc.forEach((item) => {
+                item.history.forEach((element) => {
+                    mixHistory.push(element)
+                })
+            })
+            cb(mixHistory)
+        }) 
+    }
 
     app.get('/history',(req, res)=>{
         const client = auth.get(req,'restApi')
@@ -330,12 +370,16 @@ module.exports = (app) => {
                 if ((!local.ip) || (!local.user)){
                     res.redirect('/login')
                 } else {
+                    mix(local.user, mixs => {
                         res.render('history',{
                             number: local.user.orders.number,
                             total: local.user.orders.total/1000,
                             carts: local.user.orders.carts,
+                            avatar: local.user.avatar,
                             history: local.user.history,
+                            mixs: mixs,
                         })
+                    })
                 }
             })
         }
@@ -354,6 +398,7 @@ module.exports = (app) => {
                             number: local.user.orders.number,
                             total: local.user.orders.total/1000,
                             carts: local.user.orders.carts,
+                            avatar: local.user.avatar
                         })
                 }
             })
@@ -373,6 +418,51 @@ module.exports = (app) => {
                             number: local.user.orders.number,
                             total: local.user.orders.total/1000,
                             carts: local.user.orders.carts,
+                            avatar: local.user.avatar
+                        })
+                }
+            })
+        }
+    })
+
+    app.get('/profit',(req, res)=>{
+        const client = auth.get(req,'restApi')
+        if (client.session == null) {
+            res.redirect('/login')
+        } else {
+            auth.check(client.session.id, client.ip, local => {
+                if ((!local.ip) || (!local.user)){
+                    res.redirect('/login')
+                } else {
+                        res.render('profit',{
+                            id: local.user.id,
+                            number: local.user.orders.number,
+                            total: local.user.orders.total/1000,
+                            carts: local.user.orders.carts,
+                            avatar: local.user.avatar,
+                            box: local.user.box,
+                        })
+                }
+            })
+        }
+    })
+
+    app.get('/profile',(req, res)=>{
+        const client = auth.get(req,'restApi')
+        if (client.session == null) {
+            res.redirect('/login')
+        } else {
+            auth.check(client.session.id, client.ip, local => {
+                if ((!local.ip) || (!local.user)){
+                    res.redirect('/login')
+                } else {
+                        res.render('profile',{
+                            id: local.user.id,
+                            user: local.user,
+                            number: local.user.orders.number,
+                            total: local.user.orders.total/1000,
+                            carts: local.user.orders.carts,
+                            avatar: local.user.avatar
                         })
                 }
             })

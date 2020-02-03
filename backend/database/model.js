@@ -12,7 +12,7 @@ const schemaUser = new Schema({
     username: {type: String, default: null},
     password: {type: String, default: null},
     code: [{type: Number, default: null}],
-    avatar: {type: String, default: null},
+    avatar: {type: String, default: '142858.png'},
     //Sales
     person: {type: Number, default: 0},
     system: {type: Number, default: 0},
@@ -22,6 +22,7 @@ const schemaUser = new Schema({
     box: [{
         child: {type: Number, default: 0},
         hoahong: {type: Number, default: 0},
+        idhis: {type: String, default: null}, //Tu ma don hang
         created: {type: String, default: null}
     }],
 
@@ -130,6 +131,7 @@ const schemaAdmin = new Schema({
         created: {type: String, default: null},
     }],
     bank: [{
+        st: {type: Number, default: 0},
         id: {type: Number, default: 0},
         amount: {type: Number, default: 0},
         created: {type: String, default: null},

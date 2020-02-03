@@ -1,0 +1,176 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <%- include("modular/headTag") -%>
+    <link rel="stylesheet" href="ElaAdmin/assets/css/lib/datatable/dataTables.bootstrap.min.css">
+</head>
+
+<body>
+    <%- include("modular/leftAdmin") -%>
+
+    <div id="right-panel" class="right-panel">
+        <%- include("modular/headerAdmin") -%>
+
+        <div class="content">
+            <div class="animated fadeIn">
+                <div class="row" id="status">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Thông Tin Liên Hệ</strong>
+                            </div>
+                            <div class="card-body">
+                                <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Mã Người Dùng</th>
+                                            <th>Tên Người Dùng</th>
+                                            <th>Số Điện Thoại</th>
+                                            <th>Email</th>
+                                            <th>Người Giới Thiệu</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% users.forEach((item) => { %>
+                                            <tr>
+                                                <td><%= item.id %></td>
+                                                <td><%= item.username %></td>
+                                                <td><%= item.phone %></td>
+                                                <td><%= item.email %></td>
+                                                <td><%= item.code[3] %></td>
+                                            </tr>
+                                        <% }) %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Tài Khoản Ngân Hàng</strong>
+                            </div>
+                            <div class="card-body">
+                                <table id="bootstrap-data-table-1" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Mã Người Dùng</th>
+                                            <th>Chủ Tài Khoản</th>
+                                            <th>Ngân Hàng</th>
+                                            <th>Chi Nhánh</th>
+                                            <th>Số Tài Khoản</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% users.forEach((item) => { %>
+                                            <tr>
+                                                <td><%= item.id %></td>
+                                                <td><%= item.wizard.owner %></td>
+                                                <td><%= item.wizard.bank %></td>
+                                                <td><%= item.wizard.branch %></td>
+                                                <td><%= item.wizard.account %></td>
+                                            </tr>
+                                        <% }) %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Chứng Minh Thư</strong>
+                            </div>
+                            <div class="card-body">
+                                <table id="bootstrap-data-table-2" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Mã Người Dùng</th>
+                                            <th>Họ & Tên</th>
+                                            <th>Số CMND</th>
+                                            <th>Ngày Sinh</th>
+                                            <th>Nguyên Quán</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% users.forEach((item) => { %>
+                                            <tr>
+                                                <td><%= item.id %></td>
+                                                <td><%= item.wizard.fullname %></td>
+                                                <td><%= item.wizard.identifier %></td>
+                                                <td><%= item.wizard.born %></td>
+                                                <td><%= item.wizard.domicile %></td>
+                                            </tr>
+                                        <% }) %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Thành Tích Kinh Doanh</strong>
+                            </div>
+                            <div class="card-body">
+                                <table id="bootstrap-data-table-3" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Mã Người Dùng</th>
+                                            <th>Cấp Đại Lý</th>
+                                            <th>DS Cá Nhân</th>
+                                            <th>DS Hệ Thống</th>
+                                            <th>Hoa Hồng</th>
+                                            <th>Đã Rút</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% users.forEach((item) => { %>
+                                            <tr>
+                                                <td><%= item.id %></td>
+                                                <td><%= item.rank %></td>
+                                                <td><%= item.person %></td>
+                                                <td><%= item.system %></td>
+                                                <td><%= item.profit %></td>
+                                                <td><%= item.received %></td>
+                                            </tr>
+                                        <% }) %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include("modular/scriptTag") -%>
+
+
+
+    <script src="ElaAdmin/assets/js/lib/data-table/datatables.min.js"></script>
+    <script src="ElaAdmin/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
+    <script src="ElaAdmin/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
+    <script src="ElaAdmin/assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
+    <script src="ElaAdmin/assets/js/lib/data-table/jszip.min.js"></script>
+    <script src="ElaAdmin/assets/js/lib/data-table/vfs_fonts.js"></script>
+    <script src="ElaAdmin/assets/js/lib/data-table/buttons.html5.min.js"></script>
+    <script src="ElaAdmin/assets/js/lib/data-table/buttons.print.min.js"></script>
+    <script src="ElaAdmin/assets/js/lib/data-table/buttons.colVis.min.js"></script>
+    <script src="ElaAdmin/assets/js/init/datatables-init.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+          $('#bootstrap-data-table-export').DataTable();
+      } );
+    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/socket.js"></script>
+</body>
+</html>

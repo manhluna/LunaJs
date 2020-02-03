@@ -50,8 +50,47 @@
                                 </table>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Danh Sách Rút Tiền</strong>
+                            </div>
+                            <div class="card-body">
+                                <table id="bootstrap-data-table-sys" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Người Rút</th>
+                                            <th>Số Tiền</th>
+                                            <th>Ngân Hàng</th>
+                                            <th>Chủ Tài Khoản</th>
+                                            <th>Số Tài Khoản</th>
+                                            <th>Ngày Tạo</th>
+                                            <th>Check</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% bank.forEach((item) => { %>
+                                            <tr id="ruttien_<%= item.st %>">
+                                                <td><%= item.id %></td>
+                                                <td><%= item.amount %></td>
+                                                <td><%= item.bank +' '+ item.branch %></td>
+                                                <td><%= item.owner %></td>
+                                                <td><%= item.account %></td>
+                                                <td><%= item.created %></td>
+                                                <td align="center">
+                                                    <button class="btn btn-success" id="guitien_<%= item.st %>"><i class="fa fa-check" aria-hidden="true"></i></button>
+                                                </td>
+                                            </tr>
+                                        <% }) %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                         
                     </div>
+
                 </div>
             </div>
         </div>

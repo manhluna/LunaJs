@@ -24,7 +24,7 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count"><%= person %></span> Kđ</div>
+                                            <div class="stat-text"><span class="count"><%= person/1000 %></span> Kđ</div>
                                             <div class="stat-heading">CÁ NHÂN</div>
                                         </div>
                                     </div>
@@ -60,7 +60,7 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count"><%= profit %></span> Kđ</div>
+                                            <div class="stat-text"><span class="count"><%= profit/1000 %></span> Kđ</div>
                                             <div class="stat-heading">HOA HỒNG</div>
                                         </div>
                                     </div>
@@ -159,32 +159,32 @@
                                       <tr class="table-secondary">
                                         <th scope="row">Cộng tác viên</th>
                                         <td><%= ctv.amount %></td>
-                                        <td><%= ctv.revenue %></td>
+                                        <td><%= ctv.revenue /1000 %></td>
                                       </tr>
                                       <tr class="table-success">
                                         <th scope="row">Đại lý bán lẻ</th>
                                         <td><%= dlbl.amount %></td>
-                                        <td><%= dlbl.revenue %></td>
+                                        <td><%= dlbl.revenue /1000 %></td>
                                       </tr>
                                       <tr class="table-warning">
                                         <th scope="row">Đại lý bán buôn</th>
                                         <td><%= dlbb.amount %></td>
-                                        <td><%= dlbb.revenue %></td>             
+                                        <td><%= dlbb.revenue /1000 %></td>             
                                       </tr>
                                       <tr class="table-info">
                                         <th scope="row">Đại lý cấp 1</th>
                                         <td><%= dlcm.amount %></td>
-                                        <td><%= dlcm.revenue %></td>
+                                        <td><%= dlcm.revenue /1000 %></td>
                                       </tr>
                                       <tr class="table-secondary">
                                         <th scope="row">Tổng đại lý</th>
                                         <td><%= tdl.amount %></td>
-                                        <td><%= tdl.revenue %></td>
+                                        <td><%= tdl.revenue /1000 %></td>
                                       </tr>          
                                       <tr class="table-success">
                                         <th scope="row">Nhà phân phối</th>
                                         <td><%= npp.amount %></td>
-                                        <td><%= npp.revenue %></td>
+                                        <td><%= npp.revenue /1000 %></td>
                                       </tr>  
                                     </tbody>
                                   </table>
@@ -193,6 +193,22 @@
                     </div>
                 </div>
                 
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="stat-content">
+                                    <span id="limit_withdraw" style="color: red;">&nbsp;Rút tối đa: <span id="max"><%= profit - received %></span></span>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="receive" placeholder="Số tiền cần rút">
+                                          </div>
+                                        <button class="btn btn-success btn-block" id="withdraw" data-user="<%= id %>">Rút Tiền</button>
+                                    
+                                </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- /Widgets -->
             </div>
             <!-- .animated -->
@@ -204,4 +220,6 @@
     <!-- Copy to clipboard -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
     <script src="./js/copy.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/socket.js"></script>
 </html>
